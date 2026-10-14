@@ -1,277 +1,1828 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name | Physics & Other Curiosities</title>
+
+  <meta
+    name="description"
+    content="Alessandro Codega — physicist working on high-energy physics, Higgs phenomenology, machine learning and scientific outreach."
+  >
+
+  <title>Alessandro Codega | Physics & Other Curiosities</title>
+
   <style>
+
+    /* =========================================================
+       COLOUR PALETTE
+       ========================================================= */
+
     :root {
-      --bg: #f7f3ea;
-      --text: #263d34;
-      --accent: #a47745;
-      --card: #fffdf7;
+      --bg: #18241e;
+      --bg-deep: #121a16;
+
+      --text: #f1ecdf;
+      --muted: #b8c1ba;
+
+      --accent: #dfbb84;
+      --accent-dark: #a47745;
+
+      --card: #223129;
+      --card-hover: #293a30;
+
+      --line: rgba(223, 187, 132, 0.35);
+
+      --shadow:
+        0 14px 40px rgba(0, 0, 0, 0.22);
     }
 
-    body.dark {
-      --bg: #19251f;
-      --text: #f1ecdf;
-      --accent: #dfbb84;
-      --card: #223129;
+
+    /* =========================================================
+       GENERAL
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
     }
 
     body {
       margin: 0;
-      background: var(--bg);
+
+      background:
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(223, 187, 132, 0.035),
+          transparent 35%
+        ),
+        var(--bg);
+
       color: var(--text);
-      font-family: Georgia, serif;
-      line-height: 1.8;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      line-height: 1.75;
     }
 
-    header, main, footer {
-      max-width: 900px;
+    ::selection {
+      background: var(--accent);
+      color: var(--bg-deep);
+    }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 4px;
+      transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .site-header,
+    main,
+    footer {
+      width: min(1080px, calc(100% - 40px));
       margin: auto;
-      padding: 24px;
     }
 
-    header {
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--accent);
+      justify-content: space-between;
+
+      gap: 25px;
+
+      padding: 18px 0;
+
+      background:
+        rgba(24, 36, 30, 0.88);
+
+      backdrop-filter: blur(14px);
+
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .brand {
+      color: var(--text);
+
+      text-decoration: none;
+
+      font-size: 1.15rem;
+      font-weight: bold;
+
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
     }
 
     nav a {
       color: var(--text);
-      margin-left: 12px;
+
       text-decoration: none;
+
+      font-size: 0.92rem;
     }
 
-    button {
-      background: var(--text);
-      color: var(--bg);
-      border: 0;
-      padding: 10px 14px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
 
     .hero {
-      padding-top: 65px;
-      padding-bottom: 65px;
+      min-height: 82vh;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(250px, 0.65fr);
+
+      align-items: center;
+
+      gap: 70px;
+
+      padding:
+        90px 0
+        100px;
+    }
+
+    .eyebrow,
+    .section-label {
+      color: var(--accent);
+
+      letter-spacing: 0.14em;
+
+      text-transform: uppercase;
+
+      font-size: 0.76rem;
+
+      font-weight: bold;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
-      line-height: 1.1;
+      max-width: 800px;
+
+      margin:
+        12px 0
+        28px;
+
+      font-size:
+        clamp(3.2rem, 7vw, 6.6rem);
+
+      line-height: 0.98;
+
+      letter-spacing: -0.045em;
+
+      font-weight: normal;
     }
 
-    h1 em, .accent {
+    h1 em {
       color: var(--accent);
+      font-style: italic;
     }
 
-    .subtitle {
-      font-size: 1.2rem;
+    .lead {
+      max-width: 700px;
+
+      font-size: 1.25rem;
+
+      color: var(--muted);
     }
+
+    .hero-links {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+
+      padding:
+        10px 17px;
+
+      border:
+        1px solid var(--accent);
+
+      border-radius: 5px;
+
+      text-decoration: none;
+
+      color: var(--text);
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    .button.primary {
+      background: var(--accent);
+
+      color: var(--bg-deep);
+
+      border-color: var(--accent);
+    }
+
+    .button.primary:hover {
+      background: var(--text);
+      border-color: var(--text);
+    }
+
+
+    /* =========================================================
+       PORTRAIT
+       ========================================================= */
+
+    .portrait-wrap {
+      justify-self: end;
+
+      width: min(330px, 100%);
+    }
+
+    .portrait {
+      width: 100%;
+
+      aspect-ratio: 4 / 5;
+
+      object-fit: cover;
+
+      border-radius: 8px;
+
+      filter: saturate(0.8);
+
+      box-shadow: var(--shadow);
+
+      background: var(--card);
+
+      border:
+        1px solid var(--line);
+    }
+
+    .portrait-caption {
+      margin-top: 12px;
+
+      color: var(--muted);
+
+      font-size: 0.82rem;
+
+      text-align: right;
+    }
+
+
+    /* =========================================================
+       SECTIONS
+       ========================================================= */
 
     section {
-      padding: 35px 0;
-      border-top: 1px solid var(--accent);
+      padding:
+        80px 0;
+
+      border-top:
+        1px solid var(--line);
+
+      scroll-margin-top: 80px;
     }
+
+    h2 {
+      margin:
+        8px 0
+        30px;
+
+      font-size:
+        clamp(2rem, 4vw, 3.2rem);
+
+      line-height: 1.1;
+
+      font-weight: normal;
+    }
+
+    h3 {
+      margin-top: 0;
+
+      line-height: 1.25;
+    }
+
+    .intro {
+      max-width: 760px;
+
+      color: var(--muted);
+
+      font-size: 1.05rem;
+    }
+
+
+    /* =========================================================
+       CARDS
+       ========================================================= */
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+
+      margin-top: 35px;
     }
 
     .card {
       background: var(--card);
-      padding: 22px;
-      border-radius: 10px;
+
+      padding: 28px;
+
+      border:
+        1px solid
+        rgba(223, 187, 132, 0.12);
+
+      border-radius: 9px;
+
+      box-shadow: var(--shadow);
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease;
     }
 
-    a { color: var(--accent); }
+    .card:hover {
+      transform: translateY(-4px);
+
+      background: var(--card-hover);
+    }
+
+    .card p {
+      color: var(--muted);
+
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       RESEARCH TOOLS
+       ========================================================= */
+
+    .research-tools {
+      margin-top: 28px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       PUBLICATIONS
+       ========================================================= */
+
+    .publication {
+      display: grid;
+
+      grid-template-columns:
+        100px 1fr;
+
+      gap: 25px;
+
+      padding: 24px 0;
+
+      border-top:
+        1px solid var(--line);
+    }
+
+    .publication:last-child {
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .publication-year {
+      color: var(--accent);
+
+      font-size: 0.95rem;
+    }
+
+    .publication h3 {
+      margin:
+        0 0 6px;
+
+      font-size: 1.08rem;
+    }
+
+    .publication p {
+      margin: 0;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       TIMELINE
+       ========================================================= */
+
+    .timeline {
+      margin-top: 30px;
+    }
+
+    .timeline-item {
+      display: grid;
+
+      grid-template-columns:
+        145px 1fr;
+
+      gap: 25px;
+
+      padding: 25px 0;
+
+      border-top:
+        1px solid var(--line);
+    }
+
+    .timeline-item:last-child {
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .date {
+      color: var(--accent);
+
+      font-size: 0.9rem;
+    }
+
+    .timeline-item h3 {
+      margin:
+        0 0 5px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       CURRENTLY
+       ========================================================= */
+
+    .snapshot {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+
+      margin-top: 30px;
+    }
+
+    .snapshot div {
+      padding: 22px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 8px;
+
+      background:
+        rgba(34, 49, 41, 0.35);
+    }
+
+    .snapshot strong {
+      display: block;
+
+      margin-bottom: 7px;
+    }
+
+    .snapshot span {
+      color: var(--muted);
+
+      font-size: 0.95rem;
+    }
+
+
+    /* =========================================================
+       PERSONAL SECTION
+       ========================================================= */
+
+    .life-note {
+      max-width: 700px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
 
     footer {
-      border-top: 1px solid var(--accent);
-      font-size: .9rem;
+      padding:
+        45px 0
+        55px;
+
+      border-top:
+        1px solid var(--line);
+
+      color: var(--muted);
+
+      font-size: 0.9rem;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
     }
+
+    .footer-links {
+      display: flex;
+
+      gap: 15px;
+
+      flex-wrap: wrap;
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 800px) {
+
+      .site-header,
+      main,
+      footer {
+        width:
+          min(100% - 28px, 1080px);
+      }
+
+      .site-header {
+        gap: 10px;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a:nth-child(3) {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding:
+          65px 0
+          75px;
+      }
+
+      .portrait-wrap {
+        justify-self: start;
+
+        max-width: 250px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .snapshot {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .publication,
+      .timeline-item {
+        grid-template-columns: 1fr;
+
+        gap: 5px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+
+    /* =========================================================
+       SMALL PHONES
+       ========================================================= */
+
+    @media (max-width: 480px) {
+
+      nav a {
+        font-size: 0.8rem;
+      }
+
+      .snapshot {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 3.25rem;
+      }
+    }
+
   </style>
 </head>
 
+
 <body>
-  <header>
-    <strong>Your Name.</strong>
-    <nav>
-      <a href="#research">Research</a>
-      <a href="#life">My life</a>
-      <a href="#contact">Contact</a>
+
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header class="site-header">
+
+    <a class="brand" href="#">
+      Alessandro Codega.
+    </a>
+
+    <nav aria-label="Main navigation">
+
+      <a href="#research">
+        Research
+      </a>
+
+      <a href="#academic">
+        Academic
+      </a>
+
+      <a href="#life">
+        Life
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
     </nav>
-    <button id="theme">☾</button>
+
   </header>
 
+
+
   <main>
-    <div class="hero">
-      <p class="accent">PHYSICIST · MUSICIAN · CURIOUS HUMAN</p>
-      <h1>Trying to understand the <em>universe.</em></h1>
 
-      <p class="subtitle">
-        Hello! I'm Your Name, a PhD researcher in experimental
-        particle physics and phenomenology, with a background
-        in theoretical physics.
-      </p>
 
-      <p>
-        I study the fundamental building blocks of nature.
-        Outside physics, I play the viola da gamba, explore
-        early music, cook, read, take photographs, and
-        appreciate the existence of cats.
-      </p>
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
 
-      <p><em>Serious about science. Curious about almost everything else.</em></p>
+    <section
+      class="hero"
+      style="border-top: 0;"
+    >
 
-      <a href="#research">Explore my research ↓</a>
-    </div>
+      <div>
+
+        <div class="eyebrow">
+          Physicist · Science Communicator · Curious Human
+        </div>
+
+
+        <h1>
+          Trying to understand the
+          <em>universe.</em>
+        </h1>
+
+
+        <p class="lead">
+
+          I'm Alessandro Codega, a physics graduate from the
+          University of Pavia working at the intersection of
+          high-energy physics, phenomenology, the Standard Model,
+          Higgs physics and Beyond Standard Model searches.
+
+        </p>
+
+
+        <p>
+
+          My work combines theoretical ideas with computational
+          and experimental tools — from Monte Carlo simulations
+          and detector modelling to machine learning and
+          statistical analysis.
+
+        </p>
+
+
+        <div class="hero-links">
+
+          <a
+            class="button primary"
+            href="cv.pdf"
+            target="_blank"
+          >
+            Download CV ↓
+          </a>
+
+
+          <a
+            class="button"
+            href="#research"
+          >
+            Explore my research
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- YOUR PHOTO -->
+
+      <div class="portrait-wrap">
+
+        <!--
+          Put your photograph in the same folder as this HTML
+          file and name it:
+
+              portrait.jpg
+
+          If your photo has another filename, change the
+          filename below.
+        -->
+
+        <img
+          class="portrait"
+          src="portrait.jpg"
+          alt="Portrait of Alessandro Codega"
+        >
+
+        <div class="portrait-caption">
+          Pavia · Italy
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESEARCH
+         ===================================================== -->
 
     <section id="research">
-      <p class="accent">THE ACADEMIC SIDE</p>
-      <h2>What I work on</h2>
 
-      <div class="cards">
-        <article class="card">
-          <h3>Experimental particle physics</h3>
-          <p>
-            Exploring fundamental particles through experimental
-            measurements, data, and scientific analysis.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Phenomenology</h3>
-          <p>
-            Connecting theoretical predictions with observations
-            and exploring how experiments test our understanding
-            of fundamental physics.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Theoretical physics</h3>
-          <p>
-            My theoretical background inspires my interest in
-            mathematical models and the deeper principles
-            governing the natural world.
-          </p>
-        </article>
+      <div class="section-label">
+        The academic side
       </div>
 
-      <p>
-        <a href="cv.pdf">Download my CV (PDF)</a>
-      </p>
-      <p>
-        <a href="https://inspirehep.net/">INSPIRE-HEP</a> ·
-        <a href="https://orcid.org/">ORCID</a> ·
-        <a href="https://scholar.google.com/">Google Scholar</a>
-      </p>
-    </section>
 
-    <section id="life">
-      <p class="accent">BEYOND THE LAB</p>
-      <h2>Other universes I inhabit</h2>
+      <h2>
+        What I work on
+      </h2>
+
+
+      <p class="intro">
+
+        My background is in theoretical physics and high-energy
+        physics, with particular interests in quantum field theory,
+        the Standard Model, Higgs phenomenology and searches for
+        physics beyond the Standard Model.
+
+      </p>
+
 
       <div class="cards">
-        <article class="card">
-          <h3>🎻 Early music</h3>
-          <p>
-            The viola da gamba, historical instruments,
-            beautiful compositions, and musical discoveries.
-          </p>
-        </article>
+
 
         <article class="card">
-          <h3>🍳 Cooking</h3>
+
+          <h3>
+            Experimental particle physics
+          </h3>
+
           <p>
-            Recipes, kitchen experiments, and the occasional
-            surprisingly successful improvisation.
+
+            Understanding fundamental particles through simulations,
+            data analysis, detector modelling and the comparison
+            between theoretical predictions and experimental
+            signatures.
+
           </p>
+
         </article>
 
-        <article class="card">
-          <h3>📚 Reading</h3>
-          <p>
-            Books, ideas, marginal notes, and a reading list
-            that never seems to get shorter.
-          </p>
-        </article>
+
 
         <article class="card">
-          <h3>🐈 Cats</h3>
+
+          <h3>
+            Higgs phenomenology
+          </h3>
+
           <p>
-            Small furry reminders that the universe does not
-            revolve around my PhD deadlines.
+
+            Studying exotic Higgs decays and phenomenological
+            signatures, including searches for the decay H → Za
+            within the context of Beyond Standard Model physics.
+
           </p>
+
         </article>
 
-        <article class="card">
-          <h3>📷 Photography</h3>
-          <p>
-            Interesting light, little details, and moments
-            worth keeping.
-          </p>
-        </article>
+
 
         <article class="card">
-          <h3>✨ Other curiosities</h3>
+
+          <h3>
+            Machine learning
+          </h3>
+
           <p>
-            New interests, unexpected rabbit holes, and
-            whatever catches my attention next.
+
+            Developing machine-learning methods for particle-physics
+            analysis, including regression and classification
+            pipelines for improving signal-background separation
+            and controlling systematic effects.
+
           </p>
+
         </article>
+
       </div>
+
+
+      <p class="research-tools">
+
+        <strong>
+          Tools & methods:
+        </strong>
+
+        Python · NumPy · pandas · scikit-learn · matplotlib ·
+        C++ · Fortran · ROOT · Powheg · Pythia8 · Herwig7 ·
+        Delphes · FastJet · SoftDrop · LaTeX
+
+      </p>
+
     </section>
+
+
+
+    <!-- =====================================================
+         MASTER'S THESIS
+         ===================================================== -->
 
     <section>
-      <p class="accent">CURRENTLY, MORE OR LESS</p>
-      <h2>A little snapshot</h2>
-      <p><strong>Research:</strong> Add your current project here.</p>
-      <p><strong>Listening to:</strong> Add a favorite composer or recording.</p>
-      <p><strong>Reading:</strong> Add your current book.</p>
-      <p><strong>Cooking:</strong> Add your latest kitchen experiment.</p>
+
+      <div class="section-label">
+        Master's thesis
+      </div>
+
+
+      <h2>
+        A phenomenological study for H → Za searches
+      </h2>
+
+
+      <p class="intro">
+
+        My Master's thesis investigated the phenomenology of the
+        exotic Higgs decay H → Za using Monte Carlo generators
+        and a two-stage neural-network pipeline.
+
+      </p>
+
+
+      <div class="cards">
+
+
+        <article class="card">
+
+          <h3>
+            Simulation
+          </h3>
+
+          <p>
+
+            Signal and background Monte Carlo samples generated
+            with Powheg, Pythia8 and Herwig7, with fast detector
+            simulation through Delphes.
+
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <h3>
+            Jets & substructure
+          </h3>
+
+          <p>
+
+            Jet reconstruction and substructure analysis using
+            FastJet and SoftDrop grooming algorithms.
+
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <h3>
+            Neural networks
+          </h3>
+
+          <p>
+
+            A two-stage regression and classification pipeline
+            designed to improve signal-background separation
+            and reduce theoretical systematic uncertainties.
+
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <p>
+
+        <strong>
+          Supervisors:
+        </strong>
+
+        Prof. Daniela Rebuzzi ·
+        Dr. Sonia Carrà ·
+        Dr. Giovanni Stagnitto
+
+      </p>
+
     </section>
+
+
+
+    <!-- =====================================================
+         PUBLICATIONS & PRESENTATIONS
+         ===================================================== -->
+
+    <section id="academic">
+
+      <div class="section-label">
+        Publications & presentations
+      </div>
+
+
+      <h2>
+        Selected academic work
+      </h2>
+
+
+
+      <div class="publication">
+
+        <div class="publication-year">
+          2026
+        </div>
+
+        <div>
+
+          <h3>
+            A Phenomenological Study for H → Za Searches
+          </h3>
+
+          <p>
+
+            A. Codega, S. Carrà, D. Rebuzzi, G. Stagnitto —
+            Oral presentation, SIF Florence 2026 Conference,
+            Florence, Italy.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="publication">
+
+        <div class="publication-year">
+          2026
+        </div>
+
+        <div>
+
+          <h3>
+            A Taste of Physics:
+            The Scientific Method in the Kitchen
+          </h3>
+
+          <p>
+
+            L. Zatti, C. Aimè, D. Aurelio, E. Budassi,
+            A. Codega, P. Montagna, S. Restelli —
+            Talk accepted at GIREP 2026, Rethymno, Crete.
+            Journal manuscript in preparation.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="publication">
+
+        <div class="publication-year">
+          2025
+        </div>
+
+        <div>
+
+          <h3>
+            Study of the Exotic Higgs Decay H → Za
+          </h3>
+
+          <p>
+
+            Poster presentation, Department of Physics, Pavia —
+            Physics Department Congress,
+            17 February 2025.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OUTREACH
+         ===================================================== -->
+
+    <section>
+
+      <div class="section-label">
+        Experience
+      </div>
+
+
+      <h2>
+        Teaching, outreach & science communication
+      </h2>
+
+
+      <p class="intro">
+
+        I enjoy communicating physics as much as studying it.
+        My outreach experience has ranged from particle-physics
+        masterclasses to public demonstrations and interactive
+        events.
+
+      </p>
+
+
+      <div class="timeline">
+
+
+        <div class="timeline-item">
+
+          <div class="date">
+            Feb 2026
+          </div>
+
+          <div>
+
+            <h3>
+              Tutor — ATLAS Particle Physics Masterclass
+            </h3>
+
+            <p>
+
+              Pavia, Italy. Assisted high-school students during
+              particle physics analysis exercises, helping them
+              identify particle events and understand key concepts.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+          <div class="date">
+            Oct 2024 – Jun 2025
+          </div>
+
+          <div>
+
+            <h3>
+              Tutor — INFN Lab2Go Project
+            </h3>
+
+            <p>
+
+              Selected through a competitive scholarship.
+              Contributed to the requalification of high-school
+              physics laboratories in the province of Pavia,
+              developing and explaining experimental activities
+              and working with teachers.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+          <div class="date">
+            Oct – Nov 2025
+          </div>
+
+          <div>
+
+            <h3>
+              Scientific Explainer —
+              Festival della Scienza di Genova
+            </h3>
+
+            <p>
+
+              “Fisica da leccarsi i baffi”.
+              Communicated physics through everyday kitchen
+              phenomena, including measuring the speed of light
+              with a microwave and chocolate bar, exponential
+              beer-froth decay and the hot-chocolate effect.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+          <div class="date">
+            Oct – Nov 2024
+          </div>
+
+          <div>
+
+            <h3>
+              Scientific Explainer —
+              Festival della Scienza di Genova
+            </h3>
+
+            <p>
+
+              “A caccia di fotoni gamma con l'INAF”.
+              Assisted with live demonstrations and interactive
+              exhibits concerning the Cherenkov Telescope Array
+              Observatory and gamma-ray physics.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+          <div class="date">
+            Sep 2022 – Sep 2023
+          </div>
+
+          <div>
+
+            <h3>
+              European Researcher's Night —
+              Physics4Teenagers Pavia
+            </h3>
+
+            <p>
+
+              Participated in public scientific outreach activities,
+              including preparation and direction of the Escape Room
+              CNAO on biomedical physics.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EDUCATION
+         ===================================================== -->
+
+    <section>
+
+      <div class="section-label">
+        Education
+      </div>
+
+
+      <h2>
+        Academic background
+      </h2>
+
+
+      <div class="timeline">
+
+
+        <div class="timeline-item">
+
+          <div class="date">
+            2023 – 2026
+          </div>
+
+          <div>
+
+            <h3>
+              Master's Degree in Physics
+            </h3>
+
+            <p>
+
+              University of Pavia, Italy ·
+              Final grade 106/110 ·
+              GPA 28.83/30.
+
+              Thesis:
+              <em>
+                A Phenomenological Study for H → Za Searches
+              </em>.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+          <div class="date">
+            2019 – 2023
+          </div>
+
+          <div>
+
+            <h3>
+              Bachelor's Degree in Physics
+            </h3>
+
+            <p>
+
+              University of Pavia, Italy ·
+              Final grade 100/110.
+
+              Thesis:
+              <em>
+                Constraining the Neutrino Sector
+              </em>.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+          <div class="date">
+            2019
+          </div>
+
+          <div>
+
+            <h3>
+              Scientific High School Diploma
+            </h3>
+
+            <p>
+
+              Liceo Scientifico Carlo Donegani,
+              Sondrio, Italy ·
+              Final grade 100/100.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CURRENTLY
+         ===================================================== -->
+
+    <section>
+
+      <div class="section-label">
+        Currently, more or less
+      </div>
+
+
+      <h2>
+        A little snapshot
+      </h2>
+
+
+      <div class="snapshot">
+
+
+        <div>
+
+          <strong>
+            🔬 Research
+          </strong>
+
+          <span>
+            Higgs phenomenology & particle physics
+          </span>
+
+        </div>
+
+
+
+        <div>
+
+          <strong>
+            🎻 Listening to
+          </strong>
+
+          <span>
+            English & French Baroque music
+          </span>
+
+        </div>
+
+
+
+        <div>
+
+          <strong>
+            📚 Reading
+          </strong>
+
+          <span>
+            Dune, Heartstopper & whatever comes next
+          </span>
+
+        </div>
+
+
+
+        <div>
+
+          <strong>
+            🍎 Baking
+          </strong>
+
+          <span>
+            Apple pie, preferably while the whole house
+            smells of cinnamon
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BEYOND THE LAB
+         ===================================================== -->
+
+    <section id="life">
+
+      <div class="section-label">
+        Beyond the lab
+      </div>
+
+
+      <h2>
+        Other universes I inhabit
+      </h2>
+
+
+      <p class="life-note">
+
+        Physics is a big part of my life, but it is definitely
+        not the only universe I inhabit. I like collecting
+        interests almost as much as I like collecting questions —
+        from old music and photography to books, food, games,
+        travel, and the wonderfully strange corners of the internet.
+
+      </p>
+
+
+      <div class="cards">
+
+
+        <!-- MUSIC -->
+
+        <article class="card">
+
+          <h3>
+            🎻 Baroque music
+          </h3>
+
+          <p>
+
+            I'm a big fan of English and French Baroque music
+            and an amateur viola da gamba player.
+
+            I especially love the way Tobias Hume writes for
+            the viol, and the composed but expressive way
+            Marin Marais uses the instrument as a means
+            of expression.
+
+          </p>
+
+        </article>
+
+
+
+        <!-- PHOTOGRAPHY -->
+
+        <article class="card">
+
+          <h3>
+            📷 Photography
+          </h3>
+
+          <p>
+
+            I like photographing people and landscapes —
+            and, honestly, pretty much anything that catches
+            my eye.
+
+            A nice light, an interesting face, a strange
+            detail, or a beautiful view is usually enough.
+
+          </p>
+
+        </article>
+
+
+
+        <!-- BOOKS -->
+
+        <article class="card">
+
+          <h3>
+            📚 Books
+          </h3>
+
+          <p>
+
+            My reading habits are eclectic.
+
+            I've loved
+            <em>Tuesdays with Morrie</em>,
+            the <em>Dune</em> saga,
+            <em>Heartstopper</em>,
+            and plenty of other things that don't
+            necessarily belong on the same bookshelf.
+
+          </p>
+
+        </article>
+
+
+
+        <!-- COOKING -->
+
+        <article class="card">
+
+          <h3>
+            🍎 Cooking
+          </h3>
+
+          <p>
+
+            My favourite thing to cook is apple pie.
+
+            Nothing beats the smell of baked apples and
+            cinnamon sugar filling the kitchen.
+
+            Roasted chicken and lasagna are close seconds.
+
+          </p>
+
+        </article>
+
+
+
+        <!-- GAMES / INTERNET -->
+
+        <article class="card">
+
+          <h3>
+            🎮 Cozy, creepy & curious
+          </h3>
+
+          <p>
+
+            I have a soft spot for cozy games, horror games
+            and creepypastas.
+
+            I also enjoy listening in on TikTok drama despite
+            not actually having a TikTok account.
+
+            My favourite YouTuber is
+            <strong>Gab Smolders</strong>.
+
+          </p>
+
+        </article>
+
+
+
+        <!-- TRAVEL -->
+
+        <article class="card">
+
+          <h3>
+            ✈️ Travel
+          </h3>
+
+          <p>
+
+            I like travelling because it is a neat way
+            to challenge myself — and because discovering
+            what people eat in different places is one of
+            the best parts of going somewhere new.
+
+          </p>
+
+        </article>
+
+
+
+        <!-- MAXWELL -->
+
+        <article class="card">
+
+          <h3>
+            🐈 Maxwell
+          </h3>
+
+          <p>
+
+            Cats are a big part of my life.
+
+            I currently live with my furriend Maxwell,
+            who is naturally much more important than
+            any academic CV would suggest.
+
+          </p>
+
+        </article>
+
+
+
+        <!-- CURIOSITIES -->
+
+        <article class="card">
+
+          <h3>
+            ✨ Other curiosities
+          </h3>
+
+          <p>
+
+            I tend to follow whatever catches my attention
+            next.
+
+            Sometimes that's physics; sometimes it's
+            Baroque music, a game, a recipe, a photograph,
+            or a completely unnecessary internet rabbit hole.
+
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
 
     <section id="contact">
-      <p class="accent">SAY HELLO</p>
-      <h2>Let's talk about something interesting.</h2>
-      <p>
-        Physics, early music, books, cooking, photography,
+
+      <div class="section-label">
+        Say hello
+      </div>
+
+
+      <h2>
+        Let's talk about something interesting.
+      </h2>
+
+
+      <p class="intro">
+
+        Physics, scientific outreach, early music, books,
+        food, photography, games, travel, cats,
         or something completely unexpected.
+
       </p>
+
+
       <p>
-        <a href="mailto:your.email@example.com">Email me ↗</a>
+
+        <a
+          class="button primary"
+          href="mailto:alessandro.codega01@universitadipavia.it"
+        >
+          Email me ↗
+        </a>
+
       </p>
-      <p>
-        <a href="https://github.com/">GitHub</a> ·
-        <a href="https://www.linkedin.com/">LinkedIn</a>
+
+
+      <p style="margin-top: 28px;">
+
+        <a
+          href="https://inspirehep.net/"
+          target="_blank"
+          rel="noopener"
+        >
+          INSPIRE-HEP
+        </a>
+
+        ·
+
+        <a
+          href="https://orcid.org/"
+          target="_blank"
+          rel="noopener"
+        >
+          ORCID
+        </a>
+
+        ·
+
+        <a
+          href="https://scholar.google.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          Google Scholar
+        </a>
+
+        ·
+
+        <a
+          href="https://github.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub
+        </a>
+
+        ·
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          LinkedIn
+        </a>
+
       </p>
+
     </section>
+
   </main>
 
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
   <footer>
-    <p>
-      © <span id="year"></span> Your Name.
+
+    <div>
+
+      © <span id="year"></span>
+      Alessandro Codega.
+
+      <br>
+
       Made with curiosity and a little HTML.
-    </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <a href="#research">
+        Research
+      </a>
+
+      <a href="#life">
+        Life
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </div>
+
   </footer>
 
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
   <script>
+
+    /*
+      Current year in footer.
+    */
+
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    document.getElementById("theme").addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-    });
   </script>
+
+
 </body>
 </html>
-
