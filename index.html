@@ -3,43 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="Alessandro Codega — physicist working on high-energy physics, Higgs phenomenology, machine learning and scientific outreach."
-  >
-
+  <meta name="description" content="Alessandro Codega — physicist working on high-energy physics, Higgs phenomenology, machine learning and scientific outreach.">
   <title>Alessandro Codega | Physics & Other Curiosities</title>
 
   <style>
-
-    /* =========================================================
-       COLOUR PALETTE
-       ========================================================= */
-
     :root {
-      --bg: #18241e;
-      --bg-deep: #121a16;
-
-      --text: #f1ecdf;
-      --muted: #b8c1ba;
-
-      --accent: #dfbb84;
-      --accent-dark: #a47745;
-
-      --card: #223129;
-      --card-hover: #293a30;
-
-      --line: rgba(223, 187, 132, 0.35);
-
-      --shadow:
-        0 14px 40px rgba(0, 0, 0, 0.22);
+      --bg: #17231d;
+      --bg-deep: #111914;
+      --text: #f3ebdd;
+      --muted: #aab5ad;
+      --accent: #c99b5b;
+      --accent-soft: #76563c;
+      --card: #213128;
+      --card-hover: #293b31;
+      --line: rgba(201, 155, 91, .34);
+      --shadow: 0 16px 42px rgba(0, 0, 0, .24);
     }
-
-
-    /* =========================================================
-       GENERAL
-       ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -47,49 +26,29 @@
 
     html {
       scroll-behavior: smooth;
-      background: var(--bg);
     }
 
     body {
       margin: 0;
-
-      background:
-        radial-gradient(
-          circle at 80% 10%,
-          rgba(223, 187, 132, 0.035),
-          transparent 35%
-        ),
-        var(--bg);
-
+      background: var(--bg);
       color: var(--text);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+      font-family: Georgia, "Times New Roman", serif;
       line-height: 1.75;
     }
 
     ::selection {
-      background: var(--accent);
-      color: var(--bg-deep);
+      background: var(--accent-soft);
+      color: var(--text);
     }
 
     a {
       color: var(--accent);
-      text-underline-offset: 4px;
-      transition: opacity 0.2s ease;
+      text-underline-offset: 3px;
     }
 
     a:hover {
-      opacity: 0.7;
+      opacity: .72;
     }
-
-
-    /* =========================================================
-       HEADER
-       ========================================================= */
 
     .site-header,
     main,
@@ -97,6 +56,8 @@
       width: min(1080px, calc(100% - 40px));
       margin: auto;
     }
+
+    /* ---------------- HEADER ---------------- */
 
     .site-header {
       position: sticky;
@@ -106,94 +67,71 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      gap: 25px;
+      gap: 24px;
 
       padding: 18px 0;
 
-      background:
-        rgba(24, 36, 30, 0.88);
+      background: rgba(23, 35, 29, .92);
+      backdrop-filter: blur(12px);
 
-      backdrop-filter: blur(14px);
-
-      border-bottom:
-        1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .brand {
       color: var(--text);
-
       text-decoration: none;
-
       font-size: 1.15rem;
       font-weight: bold;
-
       white-space: nowrap;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
     }
 
     nav a {
       color: var(--text);
-
       text-decoration: none;
-
-      font-size: 0.92rem;
+      font-size: .92rem;
     }
 
-
-    /* =========================================================
-       HERO
-       ========================================================= */
+    /* ---------------- HERO ---------------- */
 
     .hero {
-      min-height: 82vh;
+      min-height: 78vh;
 
       display: grid;
-
-      grid-template-columns:
-        minmax(0, 1.35fr)
-        minmax(250px, 0.65fr);
+      grid-template-columns: 1.35fr .65fr;
 
       align-items: center;
 
       gap: 70px;
 
-      padding:
-        90px 0
-        100px;
+      padding: 85px 0 90px;
     }
 
     .eyebrow,
     .section-label {
       color: var(--accent);
 
-      letter-spacing: 0.14em;
-
+      letter-spacing: .14em;
       text-transform: uppercase;
 
-      font-size: 0.76rem;
-
+      font-size: .76rem;
       font-weight: bold;
     }
 
     h1 {
       max-width: 800px;
 
-      margin:
-        12px 0
-        28px;
+      margin: 12px 0 25px;
 
-      font-size:
-        clamp(3.2rem, 7vw, 6.6rem);
+      font-size: clamp(3.2rem, 7vw, 6.6rem);
 
-      line-height: 0.98;
-
-      letter-spacing: -0.045em;
+      line-height: .98;
+      letter-spacing: -.045em;
 
       font-weight: normal;
     }
@@ -204,7 +142,7 @@
     }
 
     .lead {
-      max-width: 700px;
+      max-width: 690px;
 
       font-size: 1.25rem;
 
@@ -213,7 +151,6 @@
 
     .hero-links {
       display: flex;
-
       flex-wrap: wrap;
 
       gap: 12px;
@@ -224,46 +161,24 @@
     .button {
       display: inline-block;
 
-      padding:
-        10px 17px;
+      padding: 10px 17px;
 
-      border:
-        1px solid var(--accent);
-
+      border: 1px solid var(--accent);
       border-radius: 5px;
 
       text-decoration: none;
 
       color: var(--text);
-
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      opacity: 1;
     }
 
     .button.primary {
-      background: var(--accent);
-
-      color: var(--bg-deep);
-
-      border-color: var(--accent);
-    }
-
-    .button.primary:hover {
       background: var(--text);
+      color: var(--bg);
+
       border-color: var(--text);
     }
 
-
-    /* =========================================================
-       PORTRAIT
-       ========================================================= */
+    /* ---------------- PORTRAIT ---------------- */
 
     .portrait-wrap {
       justify-self: end;
@@ -280,14 +195,13 @@
 
       border-radius: 8px;
 
-      filter: saturate(0.8);
+      filter: saturate(.8);
 
       box-shadow: var(--shadow);
 
       background: var(--card);
 
-      border:
-        1px solid var(--line);
+      border: 1px solid var(--line);
     }
 
     .portrait-caption {
@@ -295,33 +209,25 @@
 
       color: var(--muted);
 
-      font-size: 0.82rem;
+      font-size: .82rem;
 
       text-align: right;
     }
 
-
-    /* =========================================================
-       SECTIONS
-       ========================================================= */
+    /* ---------------- SECTIONS ---------------- */
 
     section {
-      padding:
-        80px 0;
+      padding: 80px 0;
 
-      border-top:
-        1px solid var(--line);
+      border-top: 1px solid var(--line);
 
-      scroll-margin-top: 80px;
+      scroll-margin-top: 70px;
     }
 
     h2 {
-      margin:
-        8px 0
-        30px;
+      margin: 8px 0 30px;
 
-      font-size:
-        clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
 
       line-height: 1.1;
 
@@ -342,16 +248,12 @@
       font-size: 1.05rem;
     }
 
-
-    /* =========================================================
-       CARDS
-       ========================================================= */
+    /* ---------------- CARDS ---------------- */
 
     .cards {
       display: grid;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
 
       gap: 18px;
 
@@ -363,21 +265,19 @@
 
       padding: 28px;
 
-      border:
-        1px solid
-        rgba(223, 187, 132, 0.12);
+      border: 1px solid rgba(201, 155, 91, .14);
 
       border-radius: 9px;
 
       box-shadow: var(--shadow);
 
       transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+        transform .2s ease,
+        background .2s ease;
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
 
       background: var(--card-hover);
     }
@@ -388,10 +288,57 @@
       margin-bottom: 0;
     }
 
+    /* ---------------- MAXWELL ---------------- */
 
-    /* =========================================================
-       RESEARCH TOOLS
-       ========================================================= */
+    .maxwell-feature {
+      display: grid;
+
+      grid-template-columns: minmax(240px, .8fr) 1.2fr;
+
+      gap: 34px;
+
+      align-items: center;
+
+      margin: 38px 0 42px;
+
+      padding: 18px;
+
+      background: var(--card);
+
+      border: 1px solid var(--line);
+
+      border-radius: 12px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .maxwell-photo {
+      width: 100%;
+
+      aspect-ratio: 4 / 3;
+
+      object-fit: cover;
+
+      display: block;
+
+      border-radius: 8px;
+
+      border: 1px solid var(--line);
+    }
+
+    .maxwell-feature h3 {
+      font-size: 1.8rem;
+
+      margin-bottom: 12px;
+    }
+
+    .maxwell-feature p {
+      color: var(--muted);
+
+      max-width: 620px;
+    }
+
+    /* ---------------- RESEARCH ---------------- */
 
     .research-tools {
       margin-top: 28px;
@@ -399,39 +346,32 @@
       color: var(--muted);
     }
 
-
-    /* =========================================================
-       PUBLICATIONS
-       ========================================================= */
+    /* ---------------- PUBLICATIONS ---------------- */
 
     .publication {
       display: grid;
 
-      grid-template-columns:
-        100px 1fr;
+      grid-template-columns: 100px 1fr;
 
       gap: 25px;
 
       padding: 24px 0;
 
-      border-top:
-        1px solid var(--line);
+      border-top: 1px solid var(--line);
     }
 
     .publication:last-child {
-      border-bottom:
-        1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .publication-year {
       color: var(--accent);
 
-      font-size: 0.95rem;
+      font-size: .95rem;
     }
 
     .publication h3 {
-      margin:
-        0 0 6px;
+      margin: 0 0 6px;
 
       font-size: 1.08rem;
     }
@@ -442,10 +382,7 @@
       color: var(--muted);
     }
 
-
-    /* =========================================================
-       TIMELINE
-       ========================================================= */
+    /* ---------------- TIMELINE ---------------- */
 
     .timeline {
       margin-top: 30px;
@@ -454,31 +391,27 @@
     .timeline-item {
       display: grid;
 
-      grid-template-columns:
-        145px 1fr;
+      grid-template-columns: 145px 1fr;
 
       gap: 25px;
 
       padding: 25px 0;
 
-      border-top:
-        1px solid var(--line);
+      border-top: 1px solid var(--line);
     }
 
     .timeline-item:last-child {
-      border-bottom:
-        1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .date {
       color: var(--accent);
 
-      font-size: 0.9rem;
+      font-size: .9rem;
     }
 
     .timeline-item h3 {
-      margin:
-        0 0 5px;
+      margin: 0 0 5px;
     }
 
     .timeline-item p {
@@ -487,16 +420,12 @@
       color: var(--muted);
     }
 
-
-    /* =========================================================
-       CURRENTLY
-       ========================================================= */
+    /* ---------------- SNAPSHOT ---------------- */
 
     .snapshot {
       display: grid;
 
-      grid-template-columns:
-        repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
 
       gap: 15px;
 
@@ -506,13 +435,9 @@
     .snapshot div {
       padding: 22px;
 
-      border:
-        1px solid var(--line);
+      border: 1px solid var(--line);
 
       border-radius: 8px;
-
-      background:
-        rgba(34, 49, 41, 0.35);
     }
 
     .snapshot strong {
@@ -524,13 +449,10 @@
     .snapshot span {
       color: var(--muted);
 
-      font-size: 0.95rem;
+      font-size: .95rem;
     }
 
-
-    /* =========================================================
-       PERSONAL SECTION
-       ========================================================= */
+    /* ---------------- LIFE ---------------- */
 
     .life-note {
       max-width: 700px;
@@ -538,22 +460,16 @@
       color: var(--muted);
     }
 
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
+    /* ---------------- FOOTER ---------------- */
 
     footer {
-      padding:
-        45px 0
-        55px;
+      padding: 45px 0 55px;
 
-      border-top:
-        1px solid var(--line);
+      border-top: 1px solid var(--line);
 
       color: var(--muted);
 
-      font-size: 0.9rem;
+      font-size: .9rem;
 
       display: flex;
 
@@ -570,26 +486,17 @@
       flex-wrap: wrap;
     }
 
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
+    /* ---------------- MOBILE ---------------- */
 
     @media (max-width: 800px) {
 
-      .site-header,
+      .site-header {
+        width: min(100% - 28px, 1080px);
+      }
+
       main,
       footer {
-        width:
-          min(100% - 28px, 1080px);
-      }
-
-      .site-header {
-        gap: 10px;
-      }
-
-      nav {
-        gap: 12px;
+        width: min(100% - 28px, 1080px);
       }
 
       nav a:nth-child(3) {
@@ -603,9 +510,7 @@
 
         gap: 35px;
 
-        padding:
-          65px 0
-          75px;
+        padding: 65px 0 75px;
       }
 
       .portrait-wrap {
@@ -619,8 +524,7 @@
       }
 
       .snapshot {
-        grid-template-columns:
-          1fr 1fr;
+        grid-template-columns: 1fr 1fr;
       }
 
       .publication,
@@ -630,20 +534,29 @@
         gap: 5px;
       }
 
+      .maxwell-feature {
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+      }
+
       footer {
         flex-direction: column;
       }
     }
 
-
-    /* =========================================================
-       SMALL PHONES
-       ========================================================= */
-
     @media (max-width: 480px) {
 
+      .site-header {
+        gap: 10px;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
       nav a {
-        font-size: 0.8rem;
+        font-size: .8rem;
       }
 
       .snapshot {
@@ -654,17 +567,12 @@
         font-size: 3.25rem;
       }
     }
-
   </style>
 </head>
 
-
 <body>
 
-
-  <!-- =======================================================
-       HEADER
-       ======================================================= -->
+  <!-- ================= HEADER ================= -->
 
   <header class="site-header">
 
@@ -695,18 +603,11 @@
   </header>
 
 
-
   <main>
 
+    <!-- ================= HERO ================= -->
 
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
-
-    <section
-      class="hero"
-      style="border-top: 0;"
-    >
+    <section class="hero" style="border-top: 0;">
 
       <div>
 
@@ -714,48 +615,33 @@
           Physicist · Science Communicator · Curious Human
         </div>
 
-
         <h1>
-          Trying to understand the
-          <em>universe.</em>
+          Trying to understand the <em>universe.</em>
         </h1>
 
-
         <p class="lead">
-
-          I'm Alessandro Codega, a physics graduate from the
-          University of Pavia working at the intersection of
-          high-energy physics, phenomenology, the Standard Model,
-          Higgs physics and Beyond Standard Model searches.
-
+          I'm Alessandro Codega, a physics graduate from the University of
+          Pavia working at the intersection of high-energy physics,
+          phenomenology, the Standard Model, Higgs physics and Beyond
+          Standard Model searches.
         </p>
-
 
         <p>
-
-          My work combines theoretical ideas with computational
-          and experimental tools — from Monte Carlo simulations
-          and detector modelling to machine learning and
-          statistical analysis.
-
+          My work combines theoretical ideas with computational and
+          experimental tools — from Monte Carlo simulations and detector
+          modelling to machine learning and statistical analysis.
         </p>
-
 
         <div class="hero-links">
 
-          <a
-            class="button primary"
-            href="cv.pdf"
-            target="_blank"
-          >
+          <a class="button primary"
+             href="cv.pdf"
+             target="_blank">
             Download CV ↓
           </a>
 
-
-          <a
-            class="button"
-            href="#research"
-          >
+          <a class="button"
+             href="#research">
             Explore my research
           </a>
 
@@ -764,21 +650,9 @@
       </div>
 
 
-
-      <!-- YOUR PHOTO -->
-
       <div class="portrait-wrap">
 
-        <!--
-          Put your photograph in the same folder as this HTML
-          file and name it:
-
-              portrait.jpg
-
-          If your photo has another filename, change the
-          filename below.
-        -->
-
+        <!-- Your portrait -->
         <img
           class="portrait"
           src="portrait.jpg"
@@ -794,10 +668,7 @@
     </section>
 
 
-
-    <!-- =====================================================
-         RESEARCH
-         ===================================================== -->
+    <!-- ================= RESEARCH ================= -->
 
     <section id="research">
 
@@ -805,24 +676,19 @@
         The academic side
       </div>
 
-
       <h2>
         What I work on
       </h2>
 
-
       <p class="intro">
-
-        My background is in theoretical physics and high-energy
-        physics, with particular interests in quantum field theory,
-        the Standard Model, Higgs phenomenology and searches for
-        physics beyond the Standard Model.
-
+        My background is in theoretical physics and high-energy physics,
+        with particular interests in quantum field theory, the Standard
+        Model, Higgs phenomenology and searches for physics beyond the
+        Standard Model.
       </p>
 
 
       <div class="cards">
-
 
         <article class="card">
 
@@ -831,16 +697,11 @@
           </h3>
 
           <p>
-
-            Understanding fundamental particles through simulations,
-            data analysis, detector modelling and the comparison
-            between theoretical predictions and experimental
-            signatures.
-
+            Understanding fundamental physics through realistic simulations,
+            detector modelling and the analysis of particle-physics events.
           </p>
 
         </article>
-
 
 
         <article class="card">
@@ -850,15 +711,12 @@
           </h3>
 
           <p>
-
-            Studying exotic Higgs decays and phenomenological
-            signatures, including searches for the decay H → Za
-            within the context of Beyond Standard Model physics.
-
+            Studying Higgs-boson decays and possible signatures of physics
+            beyond the Standard Model, with particular interest in
+            exotic decay channels.
           </p>
 
         </article>
-
 
 
         <article class="card">
@@ -868,12 +726,9 @@
           </h3>
 
           <p>
-
-            Developing machine-learning methods for particle-physics
-            analysis, including regression and classification
-            pipelines for improving signal-background separation
-            and controlling systematic effects.
-
+            Using regression and classification techniques to improve
+            signal-background separation and investigate theoretical
+            systematic uncertainties.
           </p>
 
         </article>
@@ -881,25 +736,20 @@
       </div>
 
 
-      <p class="research-tools">
+      <div class="research-tools">
 
-        <strong>
-          Tools & methods:
-        </strong>
+        <strong>Tools I work with:</strong>
 
         Python · NumPy · pandas · scikit-learn · matplotlib ·
         C++ · Fortran · ROOT · Powheg · Pythia8 · Herwig7 ·
-        Delphes · FastJet · SoftDrop · LaTeX
+        Delphes · FastJet · SoftDrop
 
-      </p>
+      </div>
 
     </section>
 
 
-
-    <!-- =====================================================
-         MASTER'S THESIS
-         ===================================================== -->
+    <!-- ================= MASTER THESIS ================= -->
 
     <section>
 
@@ -907,57 +757,47 @@
         Master's thesis
       </div>
 
-
       <h2>
         A phenomenological study for H → Za searches
       </h2>
 
-
       <p class="intro">
-
-        My Master's thesis investigated the phenomenology of the
-        exotic Higgs decay H → Za using Monte Carlo generators
-        and a two-stage neural-network pipeline.
-
+        My Master's thesis investigated the phenomenology of the exotic
+        Higgs decay H → Za using Monte Carlo generators, fast detector
+        simulation, jet substructure and a two-stage neural-network
+        pipeline.
       </p>
 
 
       <div class="cards">
 
-
         <article class="card">
 
           <h3>
-            Simulation
+            Monte Carlo
           </h3>
 
           <p>
-
-            Signal and background Monte Carlo samples generated
-            with Powheg, Pythia8 and Herwig7, with fast detector
-            simulation through Delphes.
-
+            Generated signal and background samples using Powheg,
+            Pythia8 and Herwig7, with Delphes used for fast detector
+            simulation.
           </p>
 
         </article>
 
 
-
         <article class="card">
 
           <h3>
-            Jets & substructure
+            Jet substructure
           </h3>
 
           <p>
-
-            Jet reconstruction and substructure analysis using
-            FastJet and SoftDrop grooming algorithms.
-
+            Used FastJet and SoftDrop to reconstruct and study jet
+            substructure and develop useful tagging variables.
           </p>
 
         </article>
-
 
 
         <article class="card">
@@ -967,49 +807,29 @@
           </h3>
 
           <p>
-
-            A two-stage regression and classification pipeline
-            designed to improve signal-background separation
-            and reduce theoretical systematic uncertainties.
-
+            Developed a two-stage neural-network pipeline combining
+            regression and classification to improve signal-background
+            separation and reduce theoretical systematics.
           </p>
 
         </article>
 
       </div>
 
-
-      <p>
-
-        <strong>
-          Supervisors:
-        </strong>
-
-        Prof. Daniela Rebuzzi ·
-        Dr. Sonia Carrà ·
-        Dr. Giovanni Stagnitto
-
-      </p>
-
     </section>
 
 
-
-    <!-- =====================================================
-         PUBLICATIONS & PRESENTATIONS
-         ===================================================== -->
+    <!-- ================= ACADEMIC WORK ================= -->
 
     <section id="academic">
 
       <div class="section-label">
-        Publications & presentations
+        Academic work
       </div>
 
-
       <h2>
-        Selected academic work
+        Publications & presentations
       </h2>
-
 
 
       <div class="publication">
@@ -1025,17 +845,14 @@
           </h3>
 
           <p>
-
-            A. Codega, S. Carrà, D. Rebuzzi, G. Stagnitto —
+            A. Codega, S. Carrà, D. Rebuzzi, G. Stagnitto.
             Oral presentation, SIF Florence 2026 Conference,
             Florence, Italy.
-
           </p>
 
         </div>
 
       </div>
-
 
 
       <div class="publication">
@@ -1047,23 +864,18 @@
         <div>
 
           <h3>
-            A Taste of Physics:
-            The Scientific Method in the Kitchen
+            A Taste of Physics: The Scientific Method in the Kitchen
           </h3>
 
           <p>
-
-            L. Zatti, C. Aimè, D. Aurelio, E. Budassi,
-            A. Codega, P. Montagna, S. Restelli —
-            Talk accepted at GIREP 2026, Rethymno, Crete.
-            Journal manuscript in preparation.
-
+            L. Zatti, C. Aimè, D. Aurelio, E. Budassi, A. Codega,
+            P. Montagna, S. Restelli.
+            Talk accepted at GIREP 2026, Rethymno, Crete, Greece.
           </p>
 
         </div>
 
       </div>
-
 
 
       <div class="publication">
@@ -1079,11 +891,8 @@
           </h3>
 
           <p>
-
-            Poster presentation, Department of Physics, Pavia —
-            Physics Department Congress,
-            17 February 2025.
-
+            Poster presentation, Department of Physics, University
+            of Pavia, 17 February 2025.
           </p>
 
         </div>
@@ -1093,10 +902,7 @@
     </section>
 
 
-
-    <!-- =====================================================
-         OUTREACH
-         ===================================================== -->
+    <!-- ================= EXPERIENCE ================= -->
 
     <section>
 
@@ -1104,19 +910,14 @@
         Experience
       </div>
 
-
       <h2>
         Teaching, outreach & science communication
       </h2>
 
-
       <p class="intro">
-
-        I enjoy communicating physics as much as studying it.
-        My outreach experience has ranged from particle-physics
-        masterclasses to public demonstrations and interactive
-        events.
-
+        I enjoy communicating physics as much as studying it. My outreach
+        experience has ranged from particle-physics masterclasses to
+        public demonstrations and interactive events.
       </p>
 
 
@@ -1136,17 +937,14 @@
             </h3>
 
             <p>
-
-              Pavia, Italy. Assisted high-school students during
-              particle physics analysis exercises, helping them
-              identify particle events and understand key concepts.
-
+              Pavia, Italy. Assisted high-school students during particle
+              physics analysis exercises, helping them identify particle
+              events and understand key concepts.
             </p>
 
           </div>
 
         </div>
-
 
 
         <div class="timeline-item">
@@ -1162,19 +960,15 @@
             </h3>
 
             <p>
-
-              Selected through a competitive scholarship.
-              Contributed to the requalification of high-school
-              physics laboratories in the province of Pavia,
-              developing and explaining experimental activities
-              and working with teachers.
-
+              Selected through a competitive scholarship. Contributed to
+              the requalification of high-school physics laboratories
+              in the province of Pavia, developing and explaining
+              experimental activities and working with teachers.
             </p>
 
           </div>
 
         </div>
-
 
 
         <div class="timeline-item">
@@ -1186,24 +980,19 @@
           <div>
 
             <h3>
-              Scientific Explainer —
-              Festival della Scienza di Genova
+              Scientific Explainer — Festival della Scienza di Genova
             </h3>
 
             <p>
-
-              “Fisica da leccarsi i baffi”.
-              Communicated physics through everyday kitchen
-              phenomena, including measuring the speed of light
-              with a microwave and chocolate bar, exponential
+              “Fisica da leccarsi i baffi”. Communicated physics through
+              everyday kitchen phenomena, including measuring the speed
+              of light with a microwave and chocolate bar, exponential
               beer-froth decay and the hot-chocolate effect.
-
             </p>
 
           </div>
 
         </div>
-
 
 
         <div class="timeline-item">
@@ -1215,23 +1004,18 @@
           <div>
 
             <h3>
-              Scientific Explainer —
-              Festival della Scienza di Genova
+              Scientific Explainer — Festival della Scienza di Genova
             </h3>
 
             <p>
-
-              “A caccia di fotoni gamma con l'INAF”.
-              Assisted with live demonstrations and interactive
-              exhibits concerning the Cherenkov Telescope Array
-              Observatory and gamma-ray physics.
-
+              “A caccia di fotoni gamma con l'INAF”. Assisted with live
+              demonstrations and interactive exhibits concerning the
+              Cherenkov Telescope Array Observatory and gamma-ray physics.
             </p>
 
           </div>
 
         </div>
-
 
 
         <div class="timeline-item">
@@ -1243,16 +1027,13 @@
           <div>
 
             <h3>
-              European Researcher's Night —
-              Physics4Teenagers Pavia
+              European Researcher's Night — Physics4Teenagers Pavia
             </h3>
 
             <p>
-
               Participated in public scientific outreach activities,
               including preparation and direction of the Escape Room
               CNAO on biomedical physics.
-
             </p>
 
           </div>
@@ -1264,17 +1045,13 @@
     </section>
 
 
-
-    <!-- =====================================================
-         EDUCATION
-         ===================================================== -->
+    <!-- ================= EDUCATION ================= -->
 
     <section>
 
       <div class="section-label">
         Education
       </div>
-
 
       <h2>
         Academic background
@@ -1297,22 +1074,15 @@
             </h3>
 
             <p>
-
-              University of Pavia, Italy ·
-              Final grade 106/110 ·
+              University of Pavia, Italy · Final grade 106/110 ·
               GPA 28.83/30.
-
               Thesis:
-              <em>
-                A Phenomenological Study for H → Za Searches
-              </em>.
-
+              <em>A Phenomenological Study for H → Za Searches</em>.
             </p>
 
           </div>
 
         </div>
-
 
 
         <div class="timeline-item">
@@ -1328,21 +1098,14 @@
             </h3>
 
             <p>
-
-              University of Pavia, Italy ·
-              Final grade 100/110.
-
+              University of Pavia, Italy · Final grade 100/110.
               Thesis:
-              <em>
-                Constraining the Neutrino Sector
-              </em>.
-
+              <em>Constraining the Neutrino Sector</em>.
             </p>
 
           </div>
 
         </div>
-
 
 
         <div class="timeline-item">
@@ -1358,11 +1121,8 @@
             </h3>
 
             <p>
-
-              Liceo Scientifico Carlo Donegani,
-              Sondrio, Italy ·
+              Liceo Scientifico Carlo Donegani, Sondrio, Italy ·
               Final grade 100/100.
-
             </p>
 
           </div>
@@ -1374,17 +1134,13 @@
     </section>
 
 
-
-    <!-- =====================================================
-         CURRENTLY
-         ===================================================== -->
+    <!-- ================= SNAPSHOT ================= -->
 
     <section>
 
       <div class="section-label">
         Currently, more or less
       </div>
-
 
       <h2>
         A little snapshot
@@ -1393,60 +1149,35 @@
 
       <div class="snapshot">
 
-
         <div>
-
-          <strong>
-            🔬 Research
-          </strong>
-
+          <strong>🔬 Research</strong>
           <span>
             Higgs phenomenology & particle physics
           </span>
-
         </div>
 
 
-
         <div>
-
-          <strong>
-            🎻 Listening to
-          </strong>
-
+          <strong>🎻 Listening to</strong>
           <span>
             English & French Baroque music
           </span>
-
         </div>
 
 
-
         <div>
-
-          <strong>
-            📚 Reading
-          </strong>
-
+          <strong>📚 Reading</strong>
           <span>
-            Dune, Heartstopper & whatever comes next
+            Whatever sends me down the next rabbit hole
           </span>
-
         </div>
 
 
-
         <div>
-
-          <strong>
-            🍎 Baking
-          </strong>
-
+          <strong>🍎 Baking</strong>
           <span>
-            Apple pie, preferably while the whole house
-            smells of cinnamon
+            Apple pie, preferably while the whole house smells of cinnamon
           </span>
-
         </div>
 
       </div>
@@ -1454,10 +1185,7 @@
     </section>
 
 
-
-    <!-- =====================================================
-         BEYOND THE LAB
-         ===================================================== -->
+    <!-- ================= LIFE ================= -->
 
     <section id="life">
 
@@ -1465,27 +1193,63 @@
         Beyond the lab
       </div>
 
-
       <h2>
         Other universes I inhabit
       </h2>
 
-
       <p class="life-note">
-
-        Physics is a big part of my life, but it is definitely
-        not the only universe I inhabit. I like collecting
-        interests almost as much as I like collecting questions —
-        from old music and photography to books, food, games,
-        travel, and the wonderfully strange corners of the internet.
-
+        Physics is a big part of my life, but it is definitely not the
+        only universe I inhabit. I like collecting interests almost as
+        much as I like collecting questions — from old music and
+        photography to books, food, games, travel, and the wonderfully
+        strange corners of the internet.
       </p>
 
 
+      <!-- MAXWELL -->
+
+      <div class="maxwell-feature">
+
+        <img
+          class="maxwell-photo"
+          src="cat.jpg"
+          alt="Maxwell, Alessandro's cat"
+        >
+
+        <div>
+
+          <div class="section-label">
+            The most important member of the household
+          </div>
+
+          <h3>
+            🐈 Meet Maxwell
+          </h3>
+
+          <p>
+            This is Maxwell, my furriend and unofficial household
+            supervisor. Cats are a big part of my life, and Maxwell has
+            a particular talent for appearing at exactly the wrong
+            moment when something important is happening — or exactly
+            the right moment when a break is needed.
+          </p>
+
+          <p>
+            <em>
+              Scientific status: excellent at being a cat;
+              questionable at helping with physics.
+            </em>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- LIFE CARDS -->
+
       <div class="cards">
 
-
-        <!-- MUSIC -->
 
         <article class="card">
 
@@ -1494,22 +1258,15 @@
           </h3>
 
           <p>
-
-            I'm a big fan of English and French Baroque music
-            and an amateur viola da gamba player.
-
-            I especially love the way Tobias Hume writes for
-            the viol, and the composed but expressive way
-            Marin Marais uses the instrument as a means
+            I'm a big fan of English and French Baroque music and an
+            amateur viola da gamba player. I especially love the way
+            Tobias Hume writes for the viol, and the composed but
+            expressive way Marin Marais uses the instrument as a means
             of expression.
-
           </p>
 
         </article>
 
-
-
-        <!-- PHOTOGRAPHY -->
 
         <article class="card">
 
@@ -1518,21 +1275,14 @@
           </h3>
 
           <p>
-
-            I like photographing people and landscapes —
-            and, honestly, pretty much anything that catches
-            my eye.
-
-            A nice light, an interesting face, a strange
-            detail, or a beautiful view is usually enough.
-
+            I like photographing people and landscapes — and, honestly,
+            pretty much anything that catches my eye. A nice light,
+            an interesting face, a strange detail, or a beautiful view
+            is usually enough.
           </p>
 
         </article>
 
-
-
-        <!-- BOOKS -->
 
         <article class="card">
 
@@ -1541,23 +1291,14 @@
           </h3>
 
           <p>
-
-            My reading habits are eclectic.
-
-            I've loved
-            <em>Tuesdays with Morrie</em>,
-            the <em>Dune</em> saga,
-            <em>Heartstopper</em>,
-            and plenty of other things that don't
+            My reading habits are eclectic. I've loved
+            <em>Tuesdays with Morrie</em>, the <em>Dune</em> saga,
+            <em>Heartstopper</em>, and plenty of other things that don't
             necessarily belong on the same bookshelf.
-
           </p>
 
         </article>
 
-
-
-        <!-- COOKING -->
 
         <article class="card">
 
@@ -1566,21 +1307,13 @@
           </h3>
 
           <p>
-
-            My favourite thing to cook is apple pie.
-
-            Nothing beats the smell of baked apples and
-            cinnamon sugar filling the kitchen.
-
+            My favourite thing to cook is apple pie. Nothing beats the
+            smell of baked apples and cinnamon sugar filling the kitchen.
             Roasted chicken and lasagna are close seconds.
-
           </p>
 
         </article>
 
-
-
-        <!-- GAMES / INTERNET -->
 
         <article class="card">
 
@@ -1589,23 +1322,14 @@
           </h3>
 
           <p>
-
-            I have a soft spot for cozy games, horror games
-            and creepypastas.
-
-            I also enjoy listening in on TikTok drama despite
-            not actually having a TikTok account.
-
-            My favourite YouTuber is
-            <strong>Gab Smolders</strong>.
-
+            I have a soft spot for cozy games, horror games and
+            creepypastas. I also enjoy listening in on TikTok drama
+            despite not actually having a TikTok account. My favourite
+            YouTuber is Gab Smolders.
           </p>
 
         </article>
 
-
-
-        <!-- TRAVEL -->
 
         <article class="card">
 
@@ -1614,41 +1338,14 @@
           </h3>
 
           <p>
-
-            I like travelling because it is a neat way
-            to challenge myself — and because discovering
-            what people eat in different places is one of
-            the best parts of going somewhere new.
-
+            I like travelling because it is a neat way to challenge
+            myself — and because discovering what people eat in
+            different places is one of the best parts of going somewhere
+            new.
           </p>
 
         </article>
 
-
-
-        <!-- MAXWELL -->
-
-        <article class="card">
-
-          <h3>
-            🐈 Maxwell
-          </h3>
-
-          <p>
-
-            Cats are a big part of my life.
-
-            I currently live with my furriend Maxwell,
-            who is naturally much more important than
-            any academic CV would suggest.
-
-          </p>
-
-        </article>
-
-
-
-        <!-- CURIOSITIES -->
 
         <article class="card">
 
@@ -1657,27 +1354,21 @@
           </h3>
 
           <p>
-
-            I tend to follow whatever catches my attention
-            next.
-
-            Sometimes that's physics; sometimes it's
-            Baroque music, a game, a recipe, a photograph,
-            or a completely unnecessary internet rabbit hole.
-
+            I tend to follow whatever catches my attention next.
+            Sometimes that's physics; sometimes it's Baroque music,
+            a game, a recipe, a photograph, or a completely unnecessary
+            internet rabbit hole.
           </p>
 
         </article>
+
 
       </div>
 
     </section>
 
 
-
-    <!-- =====================================================
-         CONTACT
-         ===================================================== -->
+    <!-- ================= CONTACT ================= -->
 
     <section id="contact">
 
@@ -1685,18 +1376,14 @@
         Say hello
       </div>
 
-
       <h2>
         Let's talk about something interesting.
       </h2>
 
-
       <p class="intro">
-
-        Physics, scientific outreach, early music, books,
-        food, photography, games, travel, cats,
-        or something completely unexpected.
-
+        Physics, scientific outreach, early music, books, food,
+        photography, games, travel, cats, or something completely
+        unexpected.
       </p>
 
 
@@ -1769,19 +1456,13 @@
   </main>
 
 
-
-  <!-- =======================================================
-       FOOTER
-       ======================================================= -->
+  <!-- ================= FOOTER ================= -->
 
   <footer>
 
     <div>
 
-      © <span id="year"></span>
-      Alessandro Codega.
-
-      <br>
+      © <span id="year"></span> Alessandro Codega.<br>
 
       Made with curiosity and a little HTML.
 
@@ -1807,22 +1488,12 @@
   </footer>
 
 
-
-  <!-- =======================================================
-       JAVASCRIPT
-       ======================================================= -->
-
   <script>
-
-    /*
-      Current year in footer.
-    */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
   </script>
-
 
 </body>
 </html>
