@@ -1,597 +1,693 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Alessandro Codega — high-energy physics, Higgs phenomenology, scientific outreach, analog and digital photography, Baroque music and other curiosities.">
-<meta name="theme-color" content="#101c20">
-<title>Alessandro Codega — Physics & Other Curiosities</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  color-scheme: dark;
-  --bg: #101c20;
-  --panel: #18282c;
-  --panel2: #203337;
-  --cream: #f5eddf;
-  --soft: #c1c9c3;
-  --teal: #8cbdb2;
-  --gold: #e2b981;
-  --line: #34484a;
-  --max: 1180px;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--cream);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.7;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 850px;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at 85% 15%,
-    #2b49454f,
-    transparent 55%
-  );
-}
-
-a {
-  color: var(--teal);
-  text-underline-offset: 4px;
-}
-
-a:hover { color: var(--gold); }
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-h1, h2, h3, .brand, .quote {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 500;
-  line-height: 1.15;
-}
-
-h1 {
-  font-size: clamp(3.6rem, 7.4vw, 7.7rem);
-  letter-spacing: -.065em;
-  margin: 18px 0 28px;
-}
-
-h1 em {
-  color: var(--gold);
-  font-weight: 400;
-}
-
-h2 {
-  font-size: clamp(2.3rem, 4.3vw, 4.4rem);
-  letter-spacing: -.045em;
-  margin: 12px 0 20px;
-}
-
-h3 {
-  font-size: 1.55rem;
-  margin: 0 0 12px;
-}
-
-p { margin: 0 0 18px; }
-
-.muted, .intro { color: var(--soft); }
-
-.intro {
-  font-size: 1.12rem;
-  max-width: 760px;
-}
-
-.wrap {
-  width: min(var(--max), calc(100% - 56px));
-  margin: auto;
-}
-
-/* NAVIGATION */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #101c20e8;
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--line);
-}
-
-.navrow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  min-height: 78px;
-}
-
-.brand {
-  font-size: 1.35rem;
-  color: var(--cream);
-  text-decoration: none;
-}
-
-.brand span { color: var(--gold); }
-
-nav {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-
-nav a {
-  color: var(--cream);
-  font-size: .9rem;
-  text-decoration: none;
-}
-
-.eyebrow {
-  font-size: .77rem;
-  letter-spacing: .19em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 700;
-}
-
-/* HERO */
-
-.hero {
-  padding: 94px 0 105px;
-  display: grid;
-  grid-template-columns: 1fr .85fr;
-  gap: 70px;
-  align-items: center;
-  min-height: 740px;
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-copy > p {
-  max-width: 650px;
-  font-size: 1.13rem;
-  color: var(--soft);
-}
-
-.hero-copy .lede {
-  font-size: 1.35rem;
-  color: var(--cream);
-}
-
-.hero-image { position: relative; }
-
-.hero-image img {
-  width: 100%;
-  height: 620px;
-  object-fit: cover;
-  object-position: center 30%;
-  border-radius: 220px 220px 18px 18px;
-  background: var(--panel2);
-  border: 1px solid #7d9b8c66;
-  box-shadow: 30px 32px 0 #253a39;
-}
-
-.image-label {
-  position: absolute;
-  left: -28px;
-  bottom: 35px;
-  background: var(--gold);
-  color: #172429;
-  padding: 15px 20px;
-  border-radius: 3px;
-  font-weight: 700;
-  font-size: .82rem;
-  transform: rotate(-4deg);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 30px;
-}
-
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 13px 22px;
-  border: 1px solid var(--gold);
-  border-radius: 5px;
-  font-weight: 700;
-  font-size: .92rem;
-  color: var(--cream);
-}
-
-.btn.primary {
-  background: var(--gold);
-  color: #18272b;
-}
-
-.btn:hover {
-  background: var(--cream);
-  color: var(--bg);
-  border-color: var(--cream);
-}
-
-/* GENERAL SECTIONS */
-
-section {
-  padding: 100px 0;
-  border-top: 1px solid var(--line);
-  scroll-margin-top: 95px;
-}
-
-.section-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 35px;
-  margin-bottom: 35px;
-}
-
-.section-head p {
-  max-width: 520px;
-  color: var(--soft);
-}
-
-.grid3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.tile {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  padding: 31px;
-  border-radius: 12px;
-  transition: transform .2s, background .2s;
-}
-
-.tile:hover {
-  transform: translateY(-4px);
-  background: var(--panel2);
-}
-
-.tile p {
-  color: var(--soft);
-  margin-bottom: 0;
-}
-
-.tile .number {
-  color: var(--gold);
-  font-size: .85rem;
-  letter-spacing: .12em;
-  margin-bottom: 26px;
-}
-
-/* THESIS */
-
-.feature {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 65px;
-  align-items: center;
-}
-
-.tagrow {
-  display: flex;
-  gap: 9px;
-  flex-wrap: wrap;
-  margin: 24px 0;
-}
-
-.tag {
-  border: 1px solid #62746c;
-  padding: 6px 12px;
-  border-radius: 100px;
-  color: var(--soft);
-  font-size: .78rem;
-}
-
-.statbox {
-  padding: 38px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: linear-gradient(145deg, #253d3b, #18282c);
-}
-
-.statbox .quote {
-  font-size: clamp(1.5rem, 2.7vw, 2.4rem);
-  color: var(--gold);
-  line-height: 1.35;
-}
-
-/* ACADEMIC TIMELINE */
-
-.timeline { margin-top: 28px; }
-
-.timeline-row {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 30px;
-  padding: 26px 0;
-  border-top: 1px solid var(--line);
-}
-
-.timeline-row time {
-  color: var(--gold);
-  font-size: .87rem;
-  font-weight: 700;
-}
-
-.timeline-row h3 { font-size: 1.25rem; }
-
-.timeline-row p {
-  color: var(--soft);
-  margin: 0;
-}
-
-/* MAXWELL */
-
-.cat-section { background: #1b302f; }
-
-.cat-layout {
-  display: grid;
-  grid-template-columns: 1.12fr .88fr;
-  gap: 70px;
-  align-items: center;
-}
-
-.cat-photo {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  border-radius: 12px;
-  background: var(--panel2);
-  box-shadow: 22px 22px 0 #2b4541;
-}
-
-.cat-layout h2 {
-  font-size: clamp(3.5rem, 6vw, 6rem);
-}
-
-.cat-caption {
-  color: var(--gold);
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
-}
-
-/* PERSONAL INTERESTS */
-
-.personal-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
-.personal-grid .tile { min-height: 225px; }
-
-.personal-grid .tile h3 { color: var(--gold); }
-
-/* PHOTOGRAPHY */
-
-.camera-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin: 28px 0 36px;
-}
-
-.camera-card {
-  padding: 30px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  border-radius: 12px;
-}
-
-.camera-type {
-  font-size: .76rem;
-  letter-spacing: .17em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 700;
-}
-
-.camera-card h3 { margin: 9px 0 12px; }
-
-.camera-card p {
-  color: var(--soft);
-  margin: 0;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
-  margin-top: 34px;
-}
-
-.gallery-item {
-  margin: 0;
-  grid-column: span 6;
-  overflow: hidden;
-  border-radius: 12px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-}
-
-.gallery-item:nth-child(1),
-.gallery-item:nth-child(4) {
-  grid-column: span 7;
-}
-
-.gallery-item:nth-child(2),
-.gallery-item:nth-child(3) {
-  grid-column: span 5;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  transition: transform .35s;
-}
-
-.gallery-item:hover img { transform: scale(1.025); }
-
-.gallery-item figcaption {
-  padding: 13px 18px;
-  color: var(--soft);
-  font-size: .85rem;
-}
-
-/* CONTACT AND FOOTER */
-
-.contact {
-  background: linear-gradient(120deg, #1d3535, #101c20);
-}
-
-.contact h2 { max-width: 800px; }
-
-.footer {
-  padding: 40px 0;
-  color: var(--soft);
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  border-top: 1px solid var(--line);
-  font-size: .85rem;
-}
-
-.skip {
-  position: absolute;
-  top: -60px;
-  left: 12px;
-  background: var(--gold);
-  color: #111;
-  padding: 8px;
-  z-index: 30;
-}
-
-.skip:focus { top: 12px; }
-
-:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 4px;
-}
-
-/* RESPONSIVE DESIGN */
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding: 65px 0;
-  }
-
-  .hero-image { max-width: 600px; }
-
-  .hero-image img { height: 570px; }
-
-  .grid3 { grid-template-columns: 1fr 1fr; }
-
-  .feature, .cat-layout {
-    grid-template-columns: 1fr;
-    gap: 38px;
-  }
-
-  .cat-photo { height: 550px; }
-
-  .section-head { display: block; }
-}
-
-@media (max-width: 620px) {
-  .wrap {
-    width: min(100% - 32px, var(--max));
-  }
-
-  .navrow {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
-    padding: 13px 0;
-  }
-
-  nav { gap: 16px; }
-
-  nav a { font-size: .8rem; }
-
-  .hero { gap: 35px; }
-
-  .hero-image img {
-    height: 430px;
-    box-shadow: 12px 15px 0 #253a39;
-  }
-
-  .image-label { left: 0; }
-
-  .grid3,
-  .personal-grid,
-  .camera-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline-row {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-
-  section { padding: 68px 0; }
-
-  .cat-photo {
-    height: 390px;
-    box-shadow: 12px 12px 0 #2b4541;
-  }
-
-  .gallery-item,
-  .gallery-item:nth-child(n) {
-    grid-column: span 12;
-  }
-
-  .gallery-item img { height: 300px; }
-
-  .footer { flex-direction: column; }
-
-  h1 { font-size: clamp(3.2rem, 12vw, 5rem); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .tile, .gallery-item img { transition: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Alessandro Codega — physicist, science communicator, viola da gamba player, and analog and digital photographer.">
+
+  <meta name="theme-color" content="#101c20">
+
+  <title>Alessandro Codega — Physics & Other Curiosities</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+
+      --bg: #101c20;
+      --panel: #18282c;
+      --panel2: #203337;
+
+      --cream: #f5eddf;
+      --soft: #c1c9c3;
+
+      --teal: #8cbdb2;
+      --gold: #e2b981;
+
+      --line: #34484a;
+
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--teal);
+      text-underline-offset: 4px;
+    }
+
+    a:hover {
+      color: var(--gold);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand,
+    .quote {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(3.6rem, 7.4vw, 7.7rem);
+      letter-spacing: -0.065em;
+      margin: 18px 0 28px;
+    }
+
+    h1 em {
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: clamp(2.3rem, 4.3vw, 4.4rem);
+      letter-spacing: -0.045em;
+      margin: 12px 0 20px;
+    }
+
+    h3 {
+      font-size: 1.55rem;
+      margin: 0 0 12px;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .muted,
+    .intro {
+      color: var(--soft);
+    }
+
+    .intro {
+      font-size: 1.12rem;
+      max-width: 760px;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 56px));
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #101c20ee;
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 78px;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--cream);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .eyebrow {
+      font-size: 0.77rem;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 94px 0 105px;
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 70px;
+      align-items: center;
+      min-height: 740px;
+    }
+
+    .hero-copy > p {
+      max-width: 650px;
+      font-size: 1.13rem;
+      color: var(--soft);
+    }
+
+    .hero-copy .lede {
+      font-size: 1.35rem;
+      color: var(--cream);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 620px;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 220px 220px 18px 18px;
+      background: var(--panel2);
+      border: 1px solid #7d9b8c66;
+      box-shadow: 30px 32px 0 #253a39;
+    }
+
+    .image-label {
+      position: absolute;
+      left: -28px;
+      bottom: 35px;
+      background: var(--gold);
+      color: #172429;
+      padding: 15px 20px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      transform: rotate(-4deg);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 13px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--cream);
+      transition: 0.2s;
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      color: #18272b;
+    }
+
+    .btn:hover {
+      background: var(--cream);
+      color: var(--bg);
+      border-color: var(--cream);
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 100px 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 95px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    .section-head p {
+      max-width: 520px;
+      color: var(--soft);
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tile {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 31px;
+      border-radius: 12px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .tile:hover {
+      transform: translateY(-4px);
+      background: var(--panel2);
+    }
+
+    .tile p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .tile .number {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 26px;
+    }
+
+    /* THESIS */
+
+    .feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .tagrow {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+
+    .tag {
+      border: 1px solid #62746c;
+      padding: 6px 12px;
+      border-radius: 100px;
+      color: var(--soft);
+      font-size: 0.78rem;
+    }
+
+    .statbox {
+      padding: 38px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: linear-gradient(145deg, #253d3b, #18282c);
+    }
+
+    .statbox .quote {
+      font-size: clamp(1.5rem, 2.7vw, 2.4rem);
+      color: var(--gold);
+      line-height: 1.35;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      margin-top: 28px;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 30px;
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-row time {
+      color: var(--gold);
+      font-size: 0.87rem;
+      font-weight: 700;
+    }
+
+    .timeline-row h3 {
+      font-size: 1.25rem;
+    }
+
+    .timeline-row p {
+      color: var(--soft);
+      margin: 0;
+    }
+
+    /* MAXWELL */
+
+    .cat-section {
+      background: #1b302f;
+    }
+
+    .cat-layout {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .cat-photo {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: var(--panel2);
+      box-shadow: 22px 22px 0 #2b4541;
+    }
+
+    .cat-layout h2 {
+      font-size: clamp(3.5rem, 6vw, 6rem);
+    }
+
+    .cat-caption {
+      color: var(--gold);
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.6rem;
+    }
+
+    /* PERSONAL INTERESTS */
+
+    .personal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .personal-grid .tile {
+      min-height: 225px;
+    }
+
+    .personal-grid .tile h3 {
+      color: var(--gold);
+    }
+
+    /* PHOTOGRAPHY */
+
+    .camera-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin: 28px 0 36px;
+    }
+
+    .camera-card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 12px;
+    }
+
+    .camera-type {
+      font-size: 0.76rem;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .camera-card h3 {
+      margin: 9px 0 12px;
+    }
+
+    .camera-card p {
+      color: var(--soft);
+      margin: 0;
+    }
+
+    /* PHOTO GALLERY */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .gallery-item {
+      margin: 0;
+      grid-column: span 6;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4) {
+      grid-column: span 7;
+    }
+
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3) {
+      grid-column: span 5;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      transition: transform 0.35s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.025);
+    }
+
+    .gallery-item figcaption {
+      padding: 16px 18px;
+      color: var(--soft);
+      font-size: 0.85rem;
+    }
+
+    .gallery-title {
+      display: block;
+      color: var(--cream);
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .gallery-medium {
+      display: block;
+      color: var(--gold);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: linear-gradient(120deg, #1d3535, #101c20);
+    }
+
+    .contact h2 {
+      max-width: 800px;
+    }
+
+    .footer {
+      padding: 40px 0;
+      color: var(--soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+    }
+
+    .skip {
+      position: absolute;
+      top: -60px;
+      left: 12px;
+      background: var(--gold);
+      color: #111;
+      padding: 8px;
+      z-index: 30;
+    }
+
+    .skip:focus {
+      top: 12px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 65px 0;
+      }
+
+      .hero-image {
+        max-width: 600px;
+      }
+
+      .hero-image img {
+        height: 570px;
+      }
+
+      .grid3 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature,
+      .cat-layout {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .cat-photo {
+        height: 550px;
+      }
+
+      .section-head {
+        display: block;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 620px) {
+
+      .wrap {
+        width: calc(100% - 32px);
+      }
+
+      .navrow {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+        padding: 13px 0;
+      }
+
+      nav {
+        gap: 16px;
+      }
+
+      nav a {
+        font-size: 0.8rem;
+      }
+
+      .hero {
+        gap: 35px;
+      }
+
+      .hero-image img {
+        height: 430px;
+        box-shadow: 12px 15px 0 #253a39;
+      }
+
+      .image-label {
+        left: 0;
+      }
+
+      .grid3,
+      .personal-grid,
+      .camera-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .cat-photo {
+        height: 390px;
+        box-shadow: 12px 12px 0 #2b4541;
+      }
+
+      .gallery-item,
+      .gallery-item:nth-child(n) {
+        grid-column: span 12;
+      }
+
+      .gallery-item img {
+        height: 320px;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 12vw, 5rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .tile,
+      .gallery-item img {
+        transition: none;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- NAVIGATION -->
+
 <header class="site-header">
   <div class="wrap navrow">
-    <a class="brand" href="#top">Alessandro Codega<span>.</span></a>
+
+    <a class="brand" href="#top">
+      Alessandro Codega<span>.</span>
+    </a>
+
     <nav aria-label="Main navigation">
       <a href="#research">Research</a>
       <a href="#experience">Experience</a>
@@ -599,521 +695,748 @@ section {
       <a href="#photography">Photos</a>
       <a href="#contact">Contact</a>
     </nav>
+
   </div>
 </header>
 
 <main id="main">
 
-  <!-- HERO -->
+<!-- HERO -->
 
-  <div class="wrap" id="top">
-    <div class="hero">
+<div class="wrap" id="top">
 
-      <div class="hero-copy">
-        <div class="eyebrow">Particle physics · Pavia, Italy</div>
+  <div class="hero">
 
-        <h1>Curious about <em>everything.</em></h1>
+    <div class="hero-copy">
 
-        <p class="lede">
-          Hello, I'm Alessandro — a physicist interested in what
-          the universe is made of, and in the little things that
-          make living in it worthwhile.
-        </p>
-
-        <p>
-          My academic interests lie in high-energy physics,
-          quantum field theory and Higgs phenomenology.
-          I use Monte Carlo simulations, jet substructure and
-          machine learning to explore signatures of physics
-          beyond the Standard Model.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="#research">
-            Explore my research ↗
-          </a>
-          <a class="btn" href="cv.pdf" target="_blank" rel="noopener">
-            Read my CV ↓
-          </a>
-        </div>
+      <div class="eyebrow">
+        Particle physics · Pavia, Italy
       </div>
 
-      <div class="hero-image">
-        <img src="portrait.jpg"
-             alt="Portrait of Alessandro Codega"
-             fetchpriority="high">
-        <span class="image-label">
-          Physicist, viol player & cat person
-        </span>
-      </div>
+      <h1>
+        Curious about <em>everything.</em>
+      </h1>
 
-    </div>
-  </div>
-
-  <!-- RESEARCH -->
-
-  <section id="research">
-    <div class="wrap">
-
-      <div class="eyebrow">01 / Research</div>
-
-      <div class="section-head">
-        <h2>Asking bigger questions.</h2>
-        <p>
-          My work sits where theoretical ideas meet simulations,
-          reconstruction and data-driven techniques.
-        </p>
-      </div>
-
-      <div class="grid3">
-
-        <article class="tile">
-          <div class="number">01 / PHENOMENOLOGY</div>
-          <h3>Higgs & new physics</h3>
-          <p>
-            Investigating exotic Higgs decay channels,
-            including H → Za, and the possible traces of
-            physics beyond the Standard Model.
-          </p>
-        </article>
-
-        <article class="tile">
-          <div class="number">02 / COMPUTATION</div>
-          <h3>From particles to events</h3>
-          <p>
-            Generating and studying signal and background samples
-            with Powheg, Pythia8 and Herwig7, then modelling
-            detector response with Delphes.
-          </p>
-        </article>
-
-        <article class="tile">
-          <div class="number">03 / DATA SCIENCE</div>
-          <h3>Learning from collisions</h3>
-          <p>
-            Applying regression and classification neural networks,
-            jet-tagging variables and systematic-uncertainty
-            studies to particle-physics analyses.
-          </p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MASTER'S THESIS -->
-
-  <section>
-    <div class="wrap feature">
-
-      <div>
-        <div class="eyebrow">A closer look / Master's thesis</div>
-
-        <h2>Searching for H → Za.</h2>
-
-        <p class="intro">
-          My Master's thesis,
-          <em>A Phenomenological Study for H → Za Searches</em>,
-          explored an exotic Higgs decay with a pipeline connecting
-          event generation, detector simulation, jet reconstruction
-          and machine learning.
-        </p>
-
-        <p class="muted">
-          I compared Pythia8 and Herwig7 to investigate
-          generator-modelling differences, studied jets using
-          FastJet and SoftDrop, and developed a two-stage
-          neural-network approach combining regression with
-          classification. ROOT-based analysis helped assess
-          theoretical systematics and classifier performance.
-        </p>
-
-        <div class="tagrow">
-          <span class="tag">Powheg</span>
-          <span class="tag">Pythia8</span>
-          <span class="tag">Herwig7</span>
-          <span class="tag">Delphes</span>
-          <span class="tag">FastJet</span>
-          <span class="tag">SoftDrop</span>
-          <span class="tag">ROOT</span>
-          <span class="tag">Python</span>
-        </div>
-      </div>
-
-      <aside class="statbox">
-        <div class="eyebrow">The idea</div>
-        <p class="quote">
-          What can we learn about the Higgs by looking carefully
-          at what might be hiding in its decays?
-        </p>
-        <p class="muted">
-          A meeting point of phenomenology, computational
-          physics and machine learning.
-        </p>
-      </aside>
-
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-
-  <section id="experience">
-    <div class="wrap">
-
-      <div class="eyebrow">02 / Academic journey</div>
-      <h2>Research, teaching & sharing science.</h2>
-
-      <p class="intro">
-        I believe physics becomes even more exciting when
-        you get to share it. Alongside research, I've enjoyed
-        helping students and the public encounter scientific
-        ideas firsthand.
+      <p class="lede">
+        Hello, I'm Alessandro — a physicist interested in
+        what the universe is made of, and in the little
+        things that make living in it worthwhile.
       </p>
 
-      <div class="timeline">
-
-        <div class="timeline-row">
-          <time>2026</time>
-          <div>
-            <h3>Master's Degree in Physics · University of Pavia</h3>
-            <p>
-              Graduated with 106/110. Thesis on phenomenological
-              searches for H → Za, supervised by Daniela Rebuzzi,
-              Sonia Carrà and Giovanni Stagnitto.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-row">
-          <time>September 2026</time>
-          <div>
-            <h3>SIF Florence · Research presentation</h3>
-            <p>
-              Oral presentation:
-              <em>A Phenomenological Study for H → Za Searches</em>,
-              with S. Carrà, D. Rebuzzi and G. Stagnitto.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-row">
-          <time>February 2026</time>
-          <div>
-            <h3>ATLAS Particle Physics Masterclass · Tutor</h3>
-            <p>
-              Supporting students as they explore particle
-              physics through hands-on analysis activities.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-row">
-          <time>2024–2025</time>
-          <div>
-            <h3>INFN Lab2Go · Tutor</h3>
-            <p>
-              Working with schools and teachers on physics
-              laboratory activities and the requalification
-              of educational lab spaces.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-row">
-          <time>2024 & 2025</time>
-          <div>
-            <h3>Festival della Scienza di Genova · Scientific explainer</h3>
-            <p>
-              From gamma-ray astronomy and CTAO to physics in
-              the kitchen: microwaves, chocolate, beer froth
-              and the surprising science of everyday life.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-row">
-          <time>2025–2026</time>
-          <div>
-            <h3>A Taste of Physics · Science communication</h3>
-            <p>
-              Co-author of a manuscript in preparation about
-              the scientific method in the kitchen; a related
-              talk was accepted at GIREP 2026.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-row">
-          <time>2023</time>
-          <div>
-            <h3>Bachelor's Degree in Physics · University of Pavia</h3>
-            <p>
-              Graduated with 100/110.
-              Thesis: <em>Constraining the Neutrino Sector</em>.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MAXWELL -->
-
-  <section class="cat-section" id="maxwell">
-    <div class="wrap cat-layout">
-
-      <div>
-        <img class="cat-photo"
-             src="cat.jpg"
-             alt="Maxwell, Alessandro's beloved cat"
-             loading="lazy">
-      </div>
-
-      <div>
-        <div class="eyebrow">
-          Special guest / Household management
-        </div>
-
-        <h2>Meet <em>Maxwell.</em></h2>
-
-        <p class="cat-caption">
-          My furriend, companion and unofficial supervisor.
-        </p>
-
-        <p>
-          There's a lot of physics on this website,
-          but Maxwell deserves a prominent place too.
-          Cats are a big part of my life, and he's
-          the one currently keeping me company.
-        </p>
-
-        <p class="muted">
-          His contributions to theoretical physics remain under review.
-          His contributions to making a house feel like home
-          are beyond question.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- BEYOND PHYSICS -->
-
-  <section id="life">
-    <div class="wrap">
-
-      <div class="eyebrow">03 / Beyond the lab</div>
-
-      <h2>There's more than physics.</h2>
-
-      <p class="intro">
-        I'm happiest when I'm learning something new,
-        making something with my hands, or disappearing
-        down an unexpected rabbit hole.
-      </p>
-
-      <div class="personal-grid">
-
-        <article class="tile">
-          <h3>🎻 Old music, new discoveries</h3>
-          <p>
-            I play the viola da gamba and love English and French
-            Baroque music. Tobias Hume's writing for the viol
-            fascinates me; Marin Marais's expressive restraint
-            is just as captivating.
-          </p>
-        </article>
-
-        <article class="tile">
-          <h3>📷 Seeing things differently</h3>
-          <p>
-            Photography is my excuse to look more closely.
-            I shoot on both analog film and digital, moving
-            between my 1958 Rolleicord 3A and my Sony Alpha 3000.
-            I love photographing people, landscapes, ordinary
-            scenes and unexpected details.
-          </p>
-        </article>
-
-        <article class="tile">
-          <h3>📚 Stories of every kind</h3>
-          <p>
-            Some favourites are <em>Tuesdays with Morrie</em>,
-            the <em>Dune</em> saga and <em>Heartstopper</em>.
-            I like books that move me, transport me, or change
-            the way I look at something.
-          </p>
-        </article>
-
-        <article class="tile">
-          <h3>🍎 The kitchen is a laboratory too</h3>
-          <p>
-            Apple pie is my favourite thing to bake:
-            warm apples and cinnamon sugar are hard to beat.
-            Roasted chicken and lasagna are close contenders
-            when I'm cooking something savoury.
-          </p>
-        </article>
-
-        <article class="tile">
-          <h3>🎮 Cozy meets creepy</h3>
-          <p>
-            I love cozy games, horror games and creepypastas.
-            I'm also happy to hear about TikTok drama despite
-            not having an account. Gab Smolders is my
-            favourite YouTuber.
-          </p>
-        </article>
-
-        <article class="tile">
-          <h3>✈️ Going somewhere unfamiliar</h3>
-          <p>
-            Travel challenges me in the best possible way.
-            New places, different routines and — perhaps
-            most importantly — discovering what people eat
-            are all part of the adventure.
-          </p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PHOTOGRAPHY -->
-
-  <section id="photography">
-    <div class="wrap">
-
-      <div class="eyebrow">04 / Through my lens</div>
-
-      <div class="section-head">
-        <h2>Little moments, kept.</h2>
-        <p>
-          I work in mixed media, alternating between analog film
-          and digital photography. I like how each medium changes
-          the way I see people, places and everyday details.
-        </p>
-      </div>
-
-      <!-- CAMERA COLLECTION -->
-
-      <div class="camera-grid">
-
-        <article class="camera-card">
-          <div class="camera-type">Analog / Film</div>
-          <h3>Rolleicord 3A · 1958</h3>
-          <p>
-            My vintage film camera. Shooting analog invites me
-            to slow down, make choices carefully and enjoy the
-            process as much as the result.
-          </p>
-        </article>
-
-        <article class="camera-card">
-          <div class="camera-type">Digital</div>
-          <h3>Sony Alpha 3000</h3>
-          <p>
-            My digital companion for exploring light, framing
-            and spontaneous moments — another way of collecting
-            the scenes that catch my eye.
-          </p>
-        </article>
-
-      </div>
-
-      <!-- YOUR FOUR PHOTOGRAPHS -->
-
-      <div class="gallery-grid">
-
-        <figure class="gallery-item">
-          <img src="photo-1.jpg"
-               alt="A photograph from Alessandro's personal gallery"
-               loading="lazy">
-          <figcaption>
-            01 / A moment worth keeping
-          </figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="photo-2.jpg"
-               alt="A photograph from Alessandro's personal gallery"
-               loading="lazy">
-          <figcaption>
-            02 / Somewhere along the way
-          </figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="photo-3.jpg"
-               alt="A photograph from Alessandro's personal gallery"
-               loading="lazy">
-          <figcaption>
-            03 / Light and details
-          </figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="photo-4.jpg"
-               alt="A photograph from Alessandro's personal gallery"
-               loading="lazy">
-          <figcaption>
-            04 / Through my eyes
-          </figcaption>
-        </figure>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-
-  <section class="contact" id="contact">
-    <div class="wrap">
-
-      <div class="eyebrow">05 / Get in touch</div>
-
-      <h2>Let's talk about something interesting.</h2>
-
-      <p class="intro">
-        Research, science outreach, Baroque music, books,
-        food, photography — or cats. I'm always glad
-        to hear from curious people.
+      <p>
+        My academic interests lie in high-energy physics,
+        quantum field theory and Higgs phenomenology.
+        I use Monte Carlo simulations, jet substructure
+        and machine learning to explore signatures of
+        physics beyond the Standard Model.
       </p>
 
       <div class="actions">
-        <a class="btn primary"
-           href="mailto:alessandro.codega01@universitadipavia.it">
-          Send me an email ↗
+
+        <a class="btn primary" href="#research">
+          Explore my research ↗
         </a>
 
-        <a class="btn"
-           href="cv.pdf"
-           target="_blank"
-           rel="noopener">
-          Download CV ↓
+        <a class="btn" href="cv.pdf" target="_blank" rel="noopener">
+          Read my CV ↓
         </a>
+
       </div>
 
     </div>
-  </section>
+
+    <div class="hero-image">
+
+      <img
+        src="portrait.jpg"
+        alt="Portrait of Alessandro Codega"
+        fetchpriority="high">
+
+      <span class="image-label">
+        Physicist, viol player & cat person
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- RESEARCH -->
+
+<section id="research">
+
+  <div class="wrap">
+
+    <div class="eyebrow">01 / Research</div>
+
+    <div class="section-head">
+
+      <h2>Asking bigger questions.</h2>
+
+      <p>
+        My work sits where theoretical ideas meet
+        simulations, reconstruction and data-driven techniques.
+      </p>
+
+    </div>
+
+    <div class="grid3">
+
+      <article class="tile">
+
+        <div class="number">01 / PHENOMENOLOGY</div>
+
+        <h3>Higgs & new physics</h3>
+
+        <p>
+          Investigating exotic Higgs decay channels,
+          including H → Za, and the possible traces
+          of physics beyond the Standard Model.
+        </p>
+
+      </article>
+
+      <article class="tile">
+
+        <div class="number">02 / COMPUTATION</div>
+
+        <h3>From particles to events</h3>
+
+        <p>
+          Generating and studying signal and background
+          samples with Powheg, Pythia8 and Herwig7,
+          then modelling detector response with Delphes.
+        </p>
+
+      </article>
+
+      <article class="tile">
+
+        <div class="number">03 / DATA SCIENCE</div>
+
+        <h3>Learning from collisions</h3>
+
+        <p>
+          Applying regression and classification neural
+          networks, jet-tagging variables and
+          systematic-uncertainty studies to
+          particle-physics analyses.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MASTER'S THESIS -->
+
+<section>
+
+  <div class="wrap feature">
+
+    <div>
+
+      <div class="eyebrow">
+        A closer look / Master's thesis
+      </div>
+
+      <h2>Searching for H → Za.</h2>
+
+      <p class="intro">
+        My Master's thesis,
+        <em>A Phenomenological Study for H → Za Searches</em>,
+        explored an exotic Higgs decay with a pipeline
+        connecting event generation, detector simulation,
+        jet reconstruction and machine learning.
+      </p>
+
+      <p class="muted">
+        I compared Pythia8 and Herwig7 to investigate
+        generator-modelling differences, studied jets
+        using FastJet and SoftDrop, and developed a
+        two-stage neural-network approach combining
+        regression with classification.
+      </p>
+
+      <p class="muted">
+        ROOT-based analysis helped assess theoretical
+        systematics and classifier performance.
+      </p>
+
+      <div class="tagrow">
+        <span class="tag">Powheg</span>
+        <span class="tag">Pythia8</span>
+        <span class="tag">Herwig7</span>
+        <span class="tag">Delphes</span>
+        <span class="tag">FastJet</span>
+        <span class="tag">SoftDrop</span>
+        <span class="tag">ROOT</span>
+        <span class="tag">Python</span>
+      </div>
+
+    </div>
+
+    <aside class="statbox">
+
+      <div class="eyebrow">The idea</div>
+
+      <p class="quote">
+        What can we learn about the Higgs by looking
+        carefully at what might be hiding in its decays?
+      </p>
+
+      <p class="muted">
+        A meeting point of phenomenology,
+        computational physics and machine learning.
+      </p>
+
+    </aside>
+
+  </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+  <div class="wrap">
+
+    <div class="eyebrow">02 / Academic journey</div>
+
+    <h2>Research, teaching & sharing science.</h2>
+
+    <p class="intro">
+      I believe physics becomes even more exciting
+      when you get to share it. Alongside research,
+      I've enjoyed helping students and the public
+      encounter scientific ideas firsthand.
+    </p>
+
+    <div class="timeline">
+
+      <div class="timeline-row">
+
+        <time>2026</time>
+
+        <div>
+          <h3>
+            Master's Degree in Physics · University of Pavia
+          </h3>
+
+          <p>
+            Graduated with 106/110.
+            Thesis on phenomenological searches for H → Za.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="timeline-row">
+
+        <time>September 2026</time>
+
+        <div>
+          <h3>SIF Florence · Research presentation</h3>
+
+          <p>
+            Oral presentation:
+            <em>A Phenomenological Study for H → Za Searches</em>,
+            with S. Carrà, D. Rebuzzi and G. Stagnitto.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="timeline-row">
+
+        <time>February 2026</time>
+
+        <div>
+          <h3>
+            ATLAS Particle Physics Masterclass · Tutor
+          </h3>
+
+          <p>
+            Supporting students as they explore particle
+            physics through hands-on analysis activities.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="timeline-row">
+
+        <time>2024–2025</time>
+
+        <div>
+          <h3>INFN Lab2Go · Tutor</h3>
+
+          <p>
+            Working with schools and teachers on
+            physics laboratory activities.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="timeline-row">
+
+        <time>2024 & 2025</time>
+
+        <div>
+          <h3>
+            Festival della Scienza di Genova
+          </h3>
+
+          <p>
+            Scientific explainer for public engagement
+            activities covering astronomy, physics
+            and everyday scientific phenomena.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="timeline-row">
+
+        <time>2025–2026</time>
+
+        <div>
+          <h3>
+            A Taste of Physics · Science communication
+          </h3>
+
+          <p>
+            Co-author of a manuscript in preparation
+            about the scientific method in the kitchen.
+            A related talk was accepted at GIREP 2026.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="timeline-row">
+
+        <time>2023</time>
+
+        <div>
+          <h3>
+            Bachelor's Degree in Physics · University of Pavia
+          </h3>
+
+          <p>
+            Graduated with 100/110.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MAXWELL -->
+
+<section class="cat-section" id="maxwell">
+
+  <div class="wrap cat-layout">
+
+    <div>
+
+      <img
+        class="cat-photo"
+        src="cat.jpg"
+        alt="Maxwell, Alessandro's cat"
+        loading="lazy">
+
+    </div>
+
+    <div>
+
+      <div class="eyebrow">
+        Special guest / Household management
+      </div>
+
+      <h2>Meet <em>Maxwell.</em></h2>
+
+      <p class="cat-caption">
+        My furriend, companion and unofficial supervisor.
+      </p>
+
+      <p>
+        There's a lot of physics on this website,
+        but Maxwell deserves a prominent place too.
+        Cats are a big part of my life, and he's
+        the one currently keeping me company.
+      </p>
+
+      <p class="muted">
+        His contributions to theoretical physics
+        remain under review. His contributions
+        to making a house feel like home are
+        beyond question.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PERSONAL INTERESTS -->
+
+<section id="life">
+
+  <div class="wrap">
+
+    <div class="eyebrow">03 / Beyond the lab</div>
+
+    <h2>There's more than physics.</h2>
+
+    <p class="intro">
+      I'm happiest when I'm learning something new,
+      making something with my hands, or disappearing
+      down an unexpected rabbit hole.
+    </p>
+
+    <div class="personal-grid">
+
+      <article class="tile">
+
+        <h3>🎻 Old music, new discoveries</h3>
+
+        <p>
+          I play the viola da gamba and love English
+          and French Baroque music.
+          Tobias Hume's writing for the viol fascinates me;
+          Marin Marais's expressive restraint
+          is just as captivating.
+        </p>
+
+      </article>
+
+      <article class="tile">
+
+        <h3>📷 Seeing things differently</h3>
+
+        <p>
+          Photography is my excuse to look more closely.
+          I shoot on both analog film and digital,
+          moving between my 1958 Rolleicord 3A
+          and my Sony Alpha 3000.
+        </p>
+
+        <p>
+          I love photographing people, landscapes,
+          ordinary scenes and unexpected details.
+        </p>
+
+      </article>
+
+      <article class="tile">
+
+        <h3>📚 Stories of every kind</h3>
+
+        <p>
+          Some favourites are
+          <em>Tuesdays with Morrie</em>,
+          the <em>Dune</em> saga
+          and <em>Heartstopper</em>.
+        </p>
+
+        <p>
+          I like books that move me, transport me,
+          or change the way I look at something.
+        </p>
+
+      </article>
+
+      <article class="tile">
+
+        <h3>🍎 The kitchen is a laboratory too</h3>
+
+        <p>
+          Apple pie is my favourite thing to bake:
+          warm apples and cinnamon sugar are hard to beat.
+          Roasted chicken and lasagna are close contenders
+          when I'm cooking something savoury.
+        </p>
+
+      </article>
+
+      <article class="tile">
+
+        <h3>🎮 Cozy meets creepy</h3>
+
+        <p>
+          I love cozy games, horror games and creepypastas.
+          I'm also happy to hear about TikTok drama
+          despite not having an account.
+          Gab Smolders is my favourite YouTuber.
+        </p>
+
+      </article>
+
+      <article class="tile">
+
+        <h3>✈️ Going somewhere unfamiliar</h3>
+
+        <p>
+          Travel challenges me in the best possible way.
+          New places, different routines and — perhaps
+          most importantly — discovering what people eat
+          are all part of the adventure.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PHOTOGRAPHY -->
+
+<section id="photography">
+
+  <div class="wrap">
+
+    <div class="eyebrow">
+      04 / Through my lens
+    </div>
+
+    <div class="section-head">
+
+      <h2>Little moments, kept.</h2>
+
+      <p>
+        I work in mixed media, alternating between
+        analog film and digital photography.
+        I like how each medium changes the way
+        I see people, places and everyday details.
+      </p>
+
+    </div>
+
+    <!-- CAMERAS -->
+
+    <div class="camera-grid">
+
+      <article class="camera-card">
+
+        <div class="camera-type">
+          Analog / Film
+        </div>
+
+        <h3>Rolleicord 3A · 1958</h3>
+
+        <p>
+          My vintage film camera.
+          Shooting analog invites me to slow down,
+          make choices carefully and enjoy the
+          process as much as the result.
+        </p>
+
+      </article>
+
+      <article class="camera-card">
+
+        <div class="camera-type">
+          Digital
+        </div>
+
+        <h3>Sony Alpha 3000</h3>
+
+        <p>
+          My digital companion for exploring light,
+          framing and spontaneous moments —
+          another way of collecting the scenes
+          that catch my eye.
+        </p>
+
+      </article>
+
+    </div>
+
+    <!-- PHOTOGRAPHY GALLERY -->
+
+    <div class="gallery-grid">
+
+      <!-- PHOTO 1: STARRY SKY - DIGITAL -->
+
+      <figure class="gallery-item">
+
+        <img
+          src="photo-1.jpg"
+          alt="Starry night sky photographed by Alessandro"
+          loading="lazy">
+
+        <figcaption>
+
+          <span class="gallery-title">
+            01 / Under the stars
+          </span>
+
+          A quiet moment beneath the night sky.
+
+          <span class="gallery-medium">
+            Sony Alpha 3000 · Digital
+          </span>
+
+        </figcaption>
+
+      </figure>
+
+      <!-- PHOTO 2: PORTRAIT - ANALOG -->
+
+      <figure class="gallery-item">
+
+        <img
+          src="photo-2.jpg"
+          alt="Analog portrait photograph by Alessandro"
+          loading="lazy">
+
+        <figcaption>
+
+          <span class="gallery-title">
+            02 / A human moment
+          </span>
+
+          A portrait, captured on film.
+
+          <span class="gallery-medium">
+            Rolleicord 3A (1958) · Analog film
+          </span>
+
+        </figcaption>
+
+      </figure>
+
+      <!-- PHOTO 3: GRANADA - DIGITAL -->
+
+      <figure class="gallery-item">
+
+        <img
+          src="photo-3.jpg"
+          alt="Photographic detail in Granada, Spain"
+          loading="lazy">
+
+        <figcaption>
+
+          <span class="gallery-title">
+            03 / Fragments of Granada
+          </span>
+
+          A detail from Granada, Spain.
+
+          <span class="gallery-medium">
+            Sony Alpha 3000 · Digital
+          </span>
+
+        </figcaption>
+
+      </figure>
+
+      <!-- PHOTO 4: GENOA - ANALOG -->
+
+      <figure class="gallery-item">
+
+        <img
+          src="photo-4.jpg"
+          alt="Analog photograph of a detail in Genoa, Italy"
+          loading="lazy">
+
+        <figcaption>
+
+          <span class="gallery-title">
+            04 / Fragments of Genoa
+          </span>
+
+          A detail from Genoa, Italy.
+
+          <span class="gallery-medium">
+            Rolleicord 3A (1958) · Analog film
+          </span>
+
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <div class="wrap">
+
+    <div class="eyebrow">
+      05 / Get in touch
+    </div>
+
+    <h2>
+      Let's talk about something interesting.
+    </h2>
+
+    <p class="intro">
+      Research, science outreach, Baroque music,
+      books, food, photography — or cats.
+      I'm always glad to hear from curious people.
+    </p>
+
+    <div class="actions">
+
+      <a
+        class="btn primary"
+        href="mailto:alessandro.codega01@universitadipavia.it">
+        Send me an email ↗
+      </a>
+
+      <a
+        class="btn"
+        href="cv.pdf"
+        target="_blank"
+        rel="noopener">
+        Download CV ↓
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer class="wrap footer">
+
   <span>
-    © <span id="year">2026</span> Alessandro Codega ·
-    Made with curiosity.
+    © <span id="year">2026</span>
+    Alessandro Codega · Made with curiosity.
   </span>
 
   <span>
     Somewhere between particle physics and apple pie.
   </span>
+
 </footer>
 
 <script>
-  document.getElementById('year').textContent =
+  document.getElementById("year").textContent =
     new Date().getFullYear();
 </script>
 
