@@ -1,1 +1,277 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name | Physics & Other Curiosities</title>
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --text: #263d34;
+      --accent: #a47745;
+      --card: #fffdf7;
+    }
+
+    body.dark {
+      --bg: #19251f;
+      --text: #f1ecdf;
+      --accent: #dfbb84;
+      --card: #223129;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, serif;
+      line-height: 1.8;
+    }
+
+    header, main, footer {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    nav a {
+      color: var(--text);
+      margin-left: 12px;
+      text-decoration: none;
+    }
+
+    button {
+      background: var(--text);
+      color: var(--bg);
+      border: 0;
+      padding: 10px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding-top: 65px;
+      padding-bottom: 65px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      line-height: 1.1;
+    }
+
+    h1 em, .accent {
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 35px 0;
+      border-top: 1px solid var(--accent);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 22px;
+      border-radius: 10px;
+    }
+
+    a { color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--accent);
+      font-size: .9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <strong>Your Name.</strong>
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#life">My life</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme">☾</button>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="accent">PHYSICIST · MUSICIAN · CURIOUS HUMAN</p>
+      <h1>Trying to understand the <em>universe.</em></h1>
+
+      <p class="subtitle">
+        Hello! I'm Your Name, a PhD researcher in experimental
+        particle physics and phenomenology, with a background
+        in theoretical physics.
+      </p>
+
+      <p>
+        I study the fundamental building blocks of nature.
+        Outside physics, I play the viola da gamba, explore
+        early music, cook, read, take photographs, and
+        appreciate the existence of cats.
+      </p>
+
+      <p><em>Serious about science. Curious about almost everything else.</em></p>
+
+      <a href="#research">Explore my research ↓</a>
+    </div>
+
+    <section id="research">
+      <p class="accent">THE ACADEMIC SIDE</p>
+      <h2>What I work on</h2>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Experimental particle physics</h3>
+          <p>
+            Exploring fundamental particles through experimental
+            measurements, data, and scientific analysis.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Phenomenology</h3>
+          <p>
+            Connecting theoretical predictions with observations
+            and exploring how experiments test our understanding
+            of fundamental physics.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Theoretical physics</h3>
+          <p>
+            My theoretical background inspires my interest in
+            mathematical models and the deeper principles
+            governing the natural world.
+          </p>
+        </article>
+      </div>
+
+      <p>
+        <a href="cv.pdf">Download my CV (PDF)</a>
+      </p>
+      <p>
+        <a href="https://inspirehep.net/">INSPIRE-HEP</a> ·
+        <a href="https://orcid.org/">ORCID</a> ·
+        <a href="https://scholar.google.com/">Google Scholar</a>
+      </p>
+    </section>
+
+    <section id="life">
+      <p class="accent">BEYOND THE LAB</p>
+      <h2>Other universes I inhabit</h2>
+
+      <div class="cards">
+        <article class="card">
+          <h3>🎻 Early music</h3>
+          <p>
+            The viola da gamba, historical instruments,
+            beautiful compositions, and musical discoveries.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>🍳 Cooking</h3>
+          <p>
+            Recipes, kitchen experiments, and the occasional
+            surprisingly successful improvisation.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>📚 Reading</h3>
+          <p>
+            Books, ideas, marginal notes, and a reading list
+            that never seems to get shorter.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>🐈 Cats</h3>
+          <p>
+            Small furry reminders that the universe does not
+            revolve around my PhD deadlines.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>📷 Photography</h3>
+          <p>
+            Interesting light, little details, and moments
+            worth keeping.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>✨ Other curiosities</h3>
+          <p>
+            New interests, unexpected rabbit holes, and
+            whatever catches my attention next.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <p class="accent">CURRENTLY, MORE OR LESS</p>
+      <h2>A little snapshot</h2>
+      <p><strong>Research:</strong> Add your current project here.</p>
+      <p><strong>Listening to:</strong> Add a favorite composer or recording.</p>
+      <p><strong>Reading:</strong> Add your current book.</p>
+      <p><strong>Cooking:</strong> Add your latest kitchen experiment.</p>
+    </section>
+
+    <section id="contact">
+      <p class="accent">SAY HELLO</p>
+      <h2>Let's talk about something interesting.</h2>
+      <p>
+        Physics, early music, books, cooking, photography,
+        or something completely unexpected.
+      </p>
+      <p>
+        <a href="mailto:your.email@example.com">Email me ↗</a>
+      </p>
+      <p>
+        <a href="https://github.com/">GitHub</a> ·
+        <a href="https://www.linkedin.com/">LinkedIn</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © <span id="year"></span> Your Name.
+      Made with curiosity and a little HTML.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("theme").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  </script>
+</body>
+</html>
+
